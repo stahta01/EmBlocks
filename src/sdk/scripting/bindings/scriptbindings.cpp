@@ -2,8 +2,8 @@
  * This file is part of the Em::Blocks IDE and licensed under the GNU Lesser General Public License, version 3
  * http://www.gnu.org/licenses/lgpl-3.0.html
  *
- * $Revision: 4 $
- * $Id: scriptbindings.cpp 4 2013-11-02 15:53:52Z gerard $
+ * $Revision: 99 $
+ * $Id: scriptbindings.cpp 99 2014-01-18 07:26:28Z gerard $
  * $HeadURL: svn://svn.berlios.de/codeblocks/trunk/src/sdk/scripting/bindings/scriptbindings.cpp $
  */
 
@@ -37,6 +37,7 @@ namespace ScriptBindings
     extern void Register_UtilDialogs();
     extern void Register_IO();
     extern void Register_ScriptPlugin();
+    extern void Register_XmlHandling();
 
     SQInteger ConfigManager_Read(HSQUIRRELVM v)
     {
@@ -371,6 +372,7 @@ namespace ScriptBindings
         Register_Dialog();
         Register_ProgressDialog();
         Register_UtilDialogs();
+        Register_XmlHandling();
 
         SqPlus::SQClassDef<ConfigManager>("ConfigManager").
                 staticFuncVarArgs(&ConfigManager_Read, "Read", "*").

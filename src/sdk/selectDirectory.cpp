@@ -20,9 +20,9 @@
     You should have received a copy of the GNU Lesser General Public License
     along with Em::Blocks.  If not, see <http://www.gnu.org/licenses/>.
 
-	@version $Revision: 4 $:
+	@version $Revision: 92 $:
     @author  $Author: gerard $:
-    @date    $Date: 2013-11-02 16:53:52 +0100 (Sat, 02 Nov 2013) $:
+    @date    $Date: 2014-01-06 09:05:32 +0100 (Mon, 06 Jan 2014) $:
 */
 
 // ============================================================================
@@ -184,7 +184,7 @@ BrowseCallbackProc(HWND hwnd, UINT uMsg, LPARAM lp, LPARAM pData)
 
 
 
-        if( wxFindFirstFile(pDlg->GetPath() + pDlg->GetSearchFile() ).IsEmpty()  )
+        if( (pDlg->GetSearchFile().IsEmpty() == FALSE) && wxFindFirstFile(pDlg->GetPath() + pDlg->GetSearchFile() ).IsEmpty()  )
             SendMessage(hwnd, BFFM_ENABLEOK, 0, 0);
 
         wxIcon icon;
@@ -203,7 +203,7 @@ BrowseCallbackProc(HWND hwnd, UINT uMsg, LPARAM lp, LPARAM pData)
         if ( SHGetPathFromIDList((LPITEMIDLIST)lp,
                                  wxStringBuffer(strDir, MAX_PATH)) )
         {
-            if( wxFindFirstFile(strDir+ pDlg->GetSearchFile()).IsEmpty()  )
+            if( (pDlg->GetSearchFile().IsEmpty() == FALSE) && wxFindFirstFile(strDir+ pDlg->GetSearchFile()).IsEmpty()  )
                 SendMessage(hwnd, BFFM_ENABLEOK, 0, 0);
         }
     }

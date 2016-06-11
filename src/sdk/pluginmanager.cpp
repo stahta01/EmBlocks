@@ -20,9 +20,9 @@
     You should have received a copy of the GNU Lesser General Public License
     along with Em::Blocks.  If not, see <http://www.gnu.org/licenses/>.
 
-	@version $Revision: 4 $:
+	@version $Revision: 103 $:
     @author  $Author: gerard $:
-    @date    $Date: 2013-11-02 16:53:52 +0100 (Sat, 02 Nov 2013) $:
+    @date    $Date: 2014-02-04 08:27:07 +0100 (Tue, 04 Feb 2014) $:
 */
 
 #include "sdk_precomp.h"
@@ -1427,6 +1427,10 @@ void PluginManager::AskPluginsForModuleMenu(const ModuleType type, wxMenu* menu,
             {
                 exception.ShowErrorMessage(false);
             }
+
+            // Check if the menu is claimed exclusive for a plugin
+            if(menu->GetClientData() == (void*)-1)
+                return;
         }
     }
 

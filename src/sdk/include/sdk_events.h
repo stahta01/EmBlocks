@@ -20,9 +20,9 @@
     You should have received a copy of the GNU Lesser General Public License
     along with Em::Blocks.  If not, see <http://www.gnu.org/licenses/>.
 
-	@version $Revision: 4 $:
+	@version $Revision: 92 $:
     @author  $Author: gerard $:
-    @date    $Date: 2013-11-02 16:53:52 +0100 (Sat, 02 Nov 2013) $:
+    @date    $Date: 2014-01-06 09:05:32 +0100 (Mon, 06 Jan 2014) $:
 */
 #ifndef SDK_EVENTS_H
 #define SDK_EVENTS_H
@@ -285,8 +285,8 @@ extern EVTIMPORT const wxEventType cbEVT_PROJECT_OPEN;
 #define EVT_PROJECT_OPEN(fn) DECLARE_EVENT_TABLE_ENTRY( cbEVT_PROJECT_OPEN, -1, -1, (wxObjectEventFunction)(wxEventFunction)(CodeBlocksEventFunction)&fn, (wxObject *) NULL ),
 extern EVTIMPORT const wxEventType cbEVT_PROJECT_SAVE;
 #define EVT_PROJECT_SAVE(fn) DECLARE_EVENT_TABLE_ENTRY( cbEVT_PROJECT_SAVE, -1, -1, (wxObjectEventFunction)(wxEventFunction)(CodeBlocksEventFunction)&fn, (wxObject *) NULL ),
-extern EVTIMPORT const wxEventType cbEVT_IS_PROJECT_MODIFIED; //E::B
-#define EVT_IS_PROJECT_MODIFIED(fn) DECLARE_EVENT_TABLE_ENTRY( cbEVT_IS_PROJECT_MODIFIED, -1, -1, (wxObjectEventFunction)(wxEventFunction)(CodeBlocksEventFunction)&fn, (wxObject *) NULL ),
+extern EVTIMPORT const wxEventType cbEVT_PROJECT_SAVING_REQUEST; //E::B
+#define EVT_PROJECT_SAVE_REQUEST(fn) DECLARE_EVENT_TABLE_ENTRY( cbEVT_PROJECT_SAVING_REQUEST, -1, -1, (wxObjectEventFunction)(wxEventFunction)(CodeBlocksEventFunction)&fn, (wxObject *) NULL ),
 extern EVTIMPORT const wxEventType cbEVT_PROJECT_ACTIVATE;
 #define EVT_PROJECT_ACTIVATE(fn) DECLARE_EVENT_TABLE_ENTRY( cbEVT_PROJECT_ACTIVATE, -1, -1, (wxObjectEventFunction)(wxEventFunction)(CodeBlocksEventFunction)&fn, (wxObject *) NULL ),
 extern EVTIMPORT const wxEventType cbEVT_PROJECT_BEGIN_ADD_FILES;

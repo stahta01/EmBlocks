@@ -20,9 +20,9 @@
     You should have received a copy of the GNU Lesser General Public License
     along with Em::Blocks.  If not, see <http://www.gnu.org/licenses/>.
 
-	@version $Revision: 31 $:
+	@version $Revision: 92 $:
     @author  $Author: gerard $:
-    @date    $Date: 2013-11-26 19:31:10 +0100 (Tue, 26 Nov 2013) $:
+    @date    $Date: 2014-01-06 09:05:32 +0100 (Mon, 06 Jan 2014) $:
 */
 
 #include "sdk_precomp.h"
@@ -222,6 +222,7 @@ bool cbProject::GetModified() const
 
     return false;
 }
+
 
 void cbProject::SetModified(bool modified)
 {

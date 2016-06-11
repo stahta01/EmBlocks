@@ -25,6 +25,7 @@
 #include <cbeditor.h>
 #include <sqplus.h>
 
+
 // wx primitives and types
 DECLARE_INSTANCE_TYPE(wxArrayString);
 DECLARE_INSTANCE_TYPE(wxColour);

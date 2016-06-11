@@ -20,9 +20,9 @@
     You should have received a copy of the GNU Lesser General Public License
     along with Em::Blocks.  If not, see <http://www.gnu.org/licenses/>.
 
-	@version $Revision: 4 $:
+	@version $Revision: 92 $:
     @author  $Author: gerard $:
-    @date    $Date: 2013-11-02 16:53:52 +0100 (Sat, 02 Nov 2013) $:
+    @date    $Date: 2014-01-06 09:05:32 +0100 (Mon, 06 Jan 2014) $:
 */
 
 #include "sdk_precomp.h"
@@ -112,7 +112,7 @@ const wxEventType cbEVT_PROJECT_NEW = wxNewEventType();
 const wxEventType cbEVT_PROJECT_CLOSE = wxNewEventType();
 const wxEventType cbEVT_PROJECT_OPEN = wxNewEventType();
 const wxEventType cbEVT_PROJECT_SAVE = wxNewEventType();
-const wxEventType cbEVT_IS_PROJECT_MODIFIED = wxNewEventType(); //E::B
+const wxEventType cbEVT_PROJECT_SAVING_REQUEST = wxNewEventType(); //E::B
 const wxEventType cbEVT_PROJECT_ACTIVATE = wxNewEventType();
 const wxEventType cbEVT_PROJECT_BEGIN_ADD_FILES = wxNewEventType();
 const wxEventType cbEVT_PROJECT_END_ADD_FILES = wxNewEventType();

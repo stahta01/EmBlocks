@@ -24,17 +24,14 @@
 	along with this program; if not, write to the Free Software
 	Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 */
-// RCS-ID: $Id: codesnippetsapp.cpp 4 2013-11-02 15:53:52Z gerard $
-
-#ifdef WX_PRECOMP //
-#include "wx_pch.h"
-#endif
+// RCS-ID: $Id: codesnippetsapp.cpp 103 2014-02-04 07:27:07Z gerard $
 
 #ifdef __BORLANDC__
 #pragma hdrstop
 #endif //__BORLANDC__
 
-#include <wx/stdpaths.h>
+#include <sdk.h>
+
 #include <wx/process.h>
 #include <wx/filename.h>
 #include <wx/filesys.h>
@@ -44,6 +41,7 @@
 #include <wx/dynlib.h>
 #include <wx/dir.h>
 #include <wx/aui/auibar.h>
+#include <wx/stdpaths.h>
 
 #if defined(__APPLE__) && defined(__MACH__)
 #include <sys/param.h>

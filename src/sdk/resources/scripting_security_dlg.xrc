@@ -68,8 +68,17 @@
 							<object class="sizeritem">
 								<object class="wxStaticText" name="ID_STATICTEXT3">
 									<label>Scripts may contain malicious code so by default you are asked before a privileged&#x0D;&#x0A;command is allowed to execute. Only allow execution of this command if you trust&#x0D;&#x0A;the source of this script or you are confident enough that the above command is&#x0D;&#x0A;harmless for your system.&#x0D;&#x0A;&#x0D;&#x0A;If you mark the script as &quot;trusted&quot; you declare that you trust this script and explicitly&#x0D;&#x0A;allow it to execute privileged commands. You should only trust scripts that you wrote&#x0D;&#x0A;yourself or if they come from a trusty source.</label>
+									<font>
+										<size>8</size>
+										<style>normal</style>
+										<weight>normal</weight>
+										<underlined>0</underlined>
+										<family>swiss</family>
+										<face></face>
+									</font>
 								</object>
-								<flag>wxALIGN_LEFT|wxALIGN_TOP</flag>
+								<flag>wxALL|wxALIGN_LEFT|wxALIGN_TOP</flag>
+								<border>1</border>
 							</object>
 						</object>
 						<flag>wxALL|wxEXPAND|wxALIGN_LEFT|wxALIGN_TOP</flag>

@@ -16,9 +16,6 @@
 				<Option host_application="..\..\..\build\emblocks.exe" />
 				<Compiler>
 					<Add option="-g" />
-					<Add option="-DWXMAKINGDLL_PROPGRID" />
-					<Add option="-DCB_PRECOMP" />
-					<Add option="-DwxPG_USE_WXMODULE=0" />
 				</Compiler>
 				<Linker>
 					<Add library="emblocks" />
@@ -61,7 +58,10 @@
 			<Add option="-DWX_PRECOMP" />
 			<Add option="-DwxUSE_UNICODE" />
 			<Add option="-DBUILDING_PLUGIN" />
+			<Add option="-DCB_PRECOMP" />
 			<Add option="-DNO_LOGGING" />
+			<Add option="-DwxPG_USE_WXMODULE=0" />
+			<Add option="-DWXMAKINGDLL_PROPGRID" />
 			<Add directory="..\..\..\sdk\include" />
 			<Add directory="..\..\..\sdk\wxscintilla\include" />
 			<Add directory="..\..\..\src" />
@@ -84,7 +84,6 @@
 		</Linker>
 		<Unit filename="GenericMessageBox.cpp" />
 		<Unit filename="GenericMessageBox.h" />
-		<Unit filename="Makefile.am" />
 		<Unit filename="Search\DirectoryParamsPanel.cpp" />
 		<Unit filename="Search\DirectoryParamsPanel.h" />
 		<Unit filename="Search\InsertIndexManager.cpp" />

@@ -2,8 +2,8 @@
  * This file is part of the Em::Blocks IDE and licensed under the GNU Lesser General Public License, version 3
  * http://www.gnu.org/licenses/lgpl-3.0.html
  *
- * $Revision: 4 $
- * $Id: sc_wxtypes.cpp 4 2013-11-02 15:53:52Z gerard $
+ * $Revision: 92 $
+ * $Id: sc_wxtypes.cpp 92 2014-01-06 08:05:32Z gerard $
  * $HeadURL: svn://svn.berlios.de/codeblocks/trunk/src/sdk/scripting/bindings/sc_wxtypes.cpp $
  */
 
@@ -12,10 +12,15 @@
     #include <wx/string.h>
     #include <globals.h>
 #endif
+
 #include <wx/filename.h>
 #include <wx/colour.h>
 
 #include "sc_base_types.h"
+
+#ifdef __WXMSW__
+#include <wx/msw/registry.h>
+#endif
 
 namespace ScriptBindings
 {
@@ -338,6 +343,27 @@ namespace ScriptBindings
     }
 
 
+    //////////////
+    // wxRegKey //
+    //////////////
+    bool GetRegKey( const wxString& path, const wxString& entry, wxString& value )
+    {
+        wxRegKey key; // defaults to HKCR
+#ifdef __WXMSW__
+
+        key.SetName(path);
+
+        if (key.Exists() && key.Open(wxRegKey::Read))
+        {
+            key.QueryValue(entry, value);
+            return true;
+        }
+#else
+//Throw message box for no Linux support
+#endif
+        return false;
+    }
+
 
 ////////////////////////////////////////////////////////////////////////////////
 
@@ -493,6 +519,11 @@ namespace ScriptBindings
                 staticFuncVarArgs(&wxString_BeforeLast, "BeforeLast", "*").
                 staticFuncVarArgs(&wxString_Add, "Add", "*").
                 staticFuncVarArgs(&wxString_to_number, "Number", "*");
+
+                ///////////////////
+                // wxRegKey      //
+                ///////////////////
+               SqPlus::RegisterGlobal(&GetRegKey, "GetRegKey");
     }
 };
 

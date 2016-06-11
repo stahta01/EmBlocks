@@ -20,9 +20,9 @@
     You should have received a copy of the GNU Lesser General Public License
     along with Em::Blocks.  If not, see <http://www.gnu.org/licenses/>.
 
-	@version $Revision: 4 $:
+	@version $Revision: 99 $:
     @author  $Author: gerard $:
-    @date    $Date: 2013-11-02 16:53:52 +0100 (Sat, 02 Nov 2013) $:
+    @date    $Date: 2014-01-18 08:26:28 +0100 (Sat, 18 Jan 2014) $:
 */
 
 #ifndef X_CONFIGMANAGER_H
@@ -76,8 +76,7 @@ namespace ConfigManagerContainer
 {
     typedef std::map<wxString, wxString> StringToStringMap;
     typedef std::map<int, wxString> IntToStringMap;
-    typedef std::set<wxString> StringSet;;
-
+    typedef std::set<wxString> StringSet;
     typedef std::map<wxString, ISerializable*> SerializableObjectMap;
 };
 

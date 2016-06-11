@@ -20,9 +20,9 @@
     You should have received a copy of the GNU Lesser General Public License
     along with Em::Blocks.  If not, see <http://www.gnu.org/licenses/>.
 
-	@version $Revision: 4 $:
+	@version $Revision: 97 $:
     @author  $Author: gerard $:
-    @date    $Date: 2013-11-02 16:53:52 +0100 (Sat, 02 Nov 2013) $:
+    @date    $Date: 2014-01-07 14:56:12 +0100 (Tue, 07 Jan 2014) $:
 */
 
 #include "sdk_precomp.h"
@@ -160,14 +160,27 @@ void EditPathDlg::OnBrowse(wxCommandEvent& /*event*/)
                 {
                     path = multi[i];
                     path.MakeRelativeTo(m_Basepath);
-                    multi[i] = path.GetFullPath();
+
+                    wxString tmp = path.GetFullPath();
+                    if( !tmp.Contains(_T("\\")) && !tmp.Contains(_T("/")))
+                    {
+                        tmp = _T("."); tmp << wxFileName::GetPathSeparator();
+                        tmp += path.GetFullPath();
+                    }
+                    multi[i] = tmp;
                 }
                 result = GetStringFromArray(multi);
             }
             else
             {
                 path.MakeRelativeTo(m_Basepath);
-                result = path.GetFullPath();
+                wxString tmp = path.GetFullPath();
+                if( !tmp.Contains(_T("\\")) && !tmp.Contains(_T("/")))
+                {
+                    tmp = _T("."); tmp << wxFileName::GetPathSeparator();
+                    tmp += path.GetFullPath();
+                }
+                result = tmp;
             }
         }
         else

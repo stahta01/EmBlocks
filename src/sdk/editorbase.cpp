@@ -20,9 +20,9 @@
     You should have received a copy of the GNU Lesser General Public License
     along with Em::Blocks.  If not, see <http://www.gnu.org/licenses/>.
 
-	@version $Revision: 4 $:
+	@version $Revision: 103 $:
     @author  $Author: gerard $:
-    @date    $Date: 2013-11-02 16:53:52 +0100 (Sat, 02 Nov 2013) $:
+    @date    $Date: 2014-02-04 08:27:07 +0100 (Tue, 04 Feb 2014) $:
 */
 
 #include "sdk_precomp.h"
@@ -281,6 +281,8 @@ void EditorBase::DisplayContextMenu(const wxPoint& position, ModuleType type)
 
     wxMenu* popup = new wxMenu;
 
+    popup->SetClientData(0);  // -1 means claimed by plugin
+
     if (!noeditor && wxGetKeyState(WXK_CONTROL))
     {
         cbStyledTextCtrl* control = Manager::Get()->GetEditorManager()->GetBuiltinActiveEditor()->GetControl();
@@ -324,8 +326,9 @@ void EditorBase::DisplayContextMenu(const wxPoint& position, ModuleType type)
         Manager::Get()->GetPluginManager()->AskPluginsForModuleMenu(type, popup, ftd);
         delete ftd;
 
-        // Extended functions, part 2 (virtual)
-        AddToContextMenu(popup, type, true);
+        // Extended functions, part 2 (virtual) if not claimed exclusive by plugin
+        if(popup->GetClientData() != (void*)-1)
+            AddToContextMenu(popup, type, true);
     }
     // inform the editors we 're done creating a context menu (just about to show it)
     OnAfterBuildContextMenu(type);

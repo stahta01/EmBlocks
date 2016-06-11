@@ -20,9 +20,9 @@
     You should have received a copy of the GNU Lesser General Public License
     along with Em::Blocks.  If not, see <http://www.gnu.org/licenses/>.
 
-	@version $Revision: 76 $:
+	@version $Revision: 92 $:
     @author  $Author: gerard $:
-    @date    $Date: 2013-12-25 09:10:32 +0100 (Wed, 25 Dec 2013) $:
+    @date    $Date: 2014-01-06 09:05:32 +0100 (Mon, 06 Jan 2014) $:
 */
 
 #include "sdk_precomp.h"
@@ -1041,12 +1041,8 @@ bool ProjectManager::QueryCloseProject(cbProject *proj,bool dontsavefiles)
             return false;
     }
 
-    CodeBlocksEvent event(cbEVT_IS_PROJECT_MODIFIED);
-    event.SetProject(proj);
-    event.SetInt(0);
-    Manager::Get()->GetPluginManager()->NotifyPlugins(event);
 
-    if ( (proj->GetModified() || event.IsChecked()) && !Manager::IsBatchBuild())
+    if ( proj->GetModified()  && !Manager::IsBatchBuild())
     {
         wxString msg;
         msg.Printf(_("Project '%s' is modified...\nDo you want to save the changes?"), proj->GetTitle().c_str());
@@ -1203,7 +1199,12 @@ bool ProjectManager::SaveAllProjects()
         cbProject* project = m_pProjects->Item(i);
         if (project)
         {
-            bool isModified = project->GetModified();
+            CodeBlocksEvent event(cbEVT_PROJECT_SAVING_REQUEST);
+            event.SetProject(project);
+            event.SetInt(0);
+            Manager::Get()->GetPluginManager()->NotifyPlugins(event);
+
+            bool isModified = (project->GetModified() || event.GetInt());
             if (isModified && SaveProject(project))
                 ++count;
         }
