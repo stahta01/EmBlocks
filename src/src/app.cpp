@@ -20,9 +20,9 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 
-    @version $Revision: 4 $:
+    @version $Revision: 36 $:
     @author  $Author: gerard $:
-    @date    $Date: 2013-11-02 16:53:52 +0100 (Sat, 02 Nov 2013) $:
+    @date    $Date: 2013-12-02 12:52:47 +0100 (Mon, 02 Dec 2013) $:
 
  */
 
@@ -367,7 +367,7 @@ void EmBlocksApp::InitAssociations()
 void EmBlocksApp::InitDebugConsole()
 {
 #ifdef __WXMSW__
-    #ifdef __CBDEBUG__
+    #ifdef CONSOLE_DEBUG
     // Remember to compile as a console application!
     AllocConsole();
     HANDLE myhandle = GetStdHandle(STD_OUTPUT_HANDLE);
@@ -613,8 +613,7 @@ bool EmBlocksApp::OnInit()
             #endif
         }
         m_pSingleInstance = 0;
-        if (   Manager::Get()->GetConfigManager(_T("app"))->ReadBool(_T("/environment/single_instance"), true)
-            && !parser.Found(_T("multiple-instance")) )
+        if ( Manager::Get()->GetConfigManager(_T("app"))->ReadBool(_T("/environment/single_instance"), true) && !parser.Found(_T("multiple-instance")) )
         {
             const wxString name = wxString::Format(_T("Em::Blocks-%s"), wxGetUserId().c_str());
 
@@ -623,7 +622,9 @@ bool EmBlocksApp::OnInit()
             {
                 /* NOTE: Due to a recent change in logging code, this visual warning got disabled.
                    So the wxLogError() has been changed to a cbMessageBox(). */
-                cbMessageBox(_("Another program instance is already running.\nEm::Blocks is currently configured to only allow one running instance.\n\nYou can access this Setting under the menu item 'Environment'."),
+                cbMessageBox(_("Another program instance is already running.\n"
+                               "Em::Blocks is currently configured to only allow one running instance.\n\n"
+                               "You can access this Setting under the menu item 'Environment'."),
                             _T("Em::Blocks"), wxOK | wxICON_ERROR);
                 return false;
             }

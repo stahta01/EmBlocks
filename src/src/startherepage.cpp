@@ -20,9 +20,9 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 
-    @version $Revision: 4 $:
+    @version $Revision: 30 $:
     @author  $Author: gerard $:
-    @date    $Date: 2013-11-02 16:53:52 +0100 (Sat, 02 Nov 2013) $:
+    @date    $Date: 2013-11-26 19:01:36 +0100 (Tue, 26 Nov 2013) $:
 
  */
 #include <sdk.h>
@@ -178,6 +178,7 @@ void StartHerePage::Reload()
     {
         wxCommandEvent evt(wxEVT_COMMAND_MENU_SELECTED, idStartHerePageVarSubst);
         evt.SetString(m_OriginalPageContent);
+        evt.SetClientData(this);
         m_pOwner->ProcessEvent(evt); // direct call
     }
 }

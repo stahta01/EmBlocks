@@ -1,6 +1,7 @@
 #include "wxDiff.h"
 
-#include "../dtl-1.12/dtl/dtl.hpp"
+#include "../dtl-1.18/dtl/dtl.hpp"
+
 
 #include <sstream>
 #include <fstream>
@@ -13,17 +14,17 @@ using dtl::Diff;
 using dtl::elemInfo;
 using dtl::uniHunk;
 using std::pair;
-using std::string;
-using std::ifstream;
+using std::wstring;
+using std::wifstream;
 using std::vector;
 
 wxDiff::wxDiff(wxString filename1, wxString filename2)
               : m_filename1(filename1), m_filename2(filename2)
 {
-    typedef std::string elem;
+    typedef wstring elem;
     typedef pair<elem, elemInfo> sesElem;
-    ifstream Aifs(filename1.mbc_str());
-    ifstream Bifs(filename2.mbc_str());
+    wifstream Aifs(filename1.mbc_str());
+    wifstream Bifs(filename2.mbc_str());
     elem buf;
     vector<elem> ALines, BLines;
 
@@ -43,11 +44,10 @@ wxDiff::wxDiff(wxString filename1, wxString filename2)
     uniHunk< sesElem > hunk;
 
     diff.composeUnifiedHunks();
-    std::ostringstream help;
-    diff.printUnifiedFormat();
-    diff.printUnifiedFormat(help);
 
-    m_diff = wxString(help.str().c_str(), wxConvUTF8);
+    std::wostringstream help;
+    diff.printUnifiedFormat(help);
+    m_diff = help.str();
 
     vector<wxArrayString> diffs;
     wxStringTokenizer tkz(m_diff, wxT("\n"));

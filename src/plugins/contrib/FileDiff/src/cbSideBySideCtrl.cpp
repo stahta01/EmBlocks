@@ -154,7 +154,7 @@ void cbSideBySideCtrl::ShowDiff(wxDiff diff)
     TCLeft->SetReadOnly(false);
     TCLeft->ClearAll();
     wxTextFile tff(diff.GetFromFilename());
-    tff.Open();
+    tff.Open(wxConvLibc);
     bool refill = false;
     wxString str = tff.GetFirstLine();
     int linecount = tff.GetLineCount() + left_empty.GetCount();
@@ -194,7 +194,7 @@ void cbSideBySideCtrl::ShowDiff(wxDiff diff)
     TCRight->SetReadOnly(false);
     TCRight->ClearAll();
     wxTextFile tft(diff.GetToFilename());
-    tft.Open();
+    tft.Open(wxConvLibc);
     refill = false;
     str = tft.GetFirstLine();
     linecount = tft.GetLineCount() + right_empty.GetCount();

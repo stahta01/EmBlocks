@@ -270,7 +270,6 @@ private:
     /** delay after receive editor activated event*/
     wxTimer                 m_TimerEditorActivated;
 
-
     cbEditor*               m_LastEditor;
     int                     m_ActiveCalltipsNest;
 

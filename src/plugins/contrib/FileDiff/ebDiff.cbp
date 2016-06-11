@@ -11,7 +11,7 @@
 				<Option object_output="..\..\..\foo\.objs" />
 				<Option type="3" />
 				<Option compiler="gcc" />
-				<Option host_application="$(#cb)\build\codeblocks.exe" />
+				<Option host_application="E:\_EmBlock\svn\src\build\emblocks.exe" />
 				<Compiler>
 					<Add option="-Wall" />
 					<Add option="-g" />
@@ -55,13 +55,19 @@
 		<VirtualTargets>
 			<Add alias="All" targets="Windows;" />
 		</VirtualTargets>
+		<Unit filename="dtl-1.18\dtl\Diff.hpp" />
+		<Unit filename="dtl-1.18\dtl\Diff3.hpp" />
+		<Unit filename="dtl-1.18\dtl\Lcs.hpp" />
+		<Unit filename="dtl-1.18\dtl\Sequence.hpp" />
+		<Unit filename="dtl-1.18\dtl\Ses.hpp" />
+		<Unit filename="dtl-1.18\dtl\dtl.hpp" />
+		<Unit filename="dtl-1.18\dtl\functors.hpp" />
+		<Unit filename="dtl-1.18\dtl\variables.hpp" />
 		<Unit filename="images\reload.h" />
 		<Unit filename="images\sidebyside.h" />
 		<Unit filename="images\swap.h" />
 		<Unit filename="images\table.h" />
 		<Unit filename="images\unified.h" />
-		<Unit filename="manifest.xml" />
-		<Unit filename="resources\filediff_plugin.xrc" />
 		<Unit filename="src\cbDiff.cpp" />
 		<Unit filename="src\cbDiff.h" />
 		<Unit filename="src\cbDiffConfigPanel.cpp" />

@@ -20,18 +20,18 @@
     You should have received a copy of the GNU Lesser General Public License
     along with Em::Blocks.  If not, see <http://www.gnu.org/licenses/>.
 
-	@version $Revision: 4 $:
+	@version $Revision: 76 $:
     @author  $Author: gerard $:
-    @date    $Date: 2013-11-02 16:53:52 +0100 (Sat, 02 Nov 2013) $:
+    @date    $Date: 2013-12-25 09:10:32 +0100 (Wed, 25 Dec 2013) $:
 */
 
 #ifndef SETTINGS_H
 #define SETTINGS_H
 
 
-#define CONFIGURE_LOC      "1.30"  // The default/global settings  appdata\emblocks\<xxx>
-#define RELEASE            "1.30"
-#define REVERSION          "4"
+#define CONFIGURE_LOC      "1.40"  // The default/global settings  appdata\emblocks\<xxx>
+#define RELEASE            "1.41"
+#define REVERSION          "1"
 #define APP_NAME           "EmBlocks"
 #define STANDARD_DATA_PATH "/share/emblocks"
 #define KEY_NAME           "EmBlocks."

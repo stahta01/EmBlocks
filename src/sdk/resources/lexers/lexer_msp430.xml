@@ -1,0 +1,95 @@
+<?xml version="1.0"?>
+<!DOCTYPE EmBlocks_lexer_properties>
+<EmBlocks_lexer_properties>
+        <Lexer name="MSP430 Assembler"
+                index="102">
+                <Style name="Default"
+                        index="0"
+                        fg="0,0,0"
+                        bg="255,255,255"
+                        bold="0"
+                        italics="0"
+                        underlined="0"/>
+                <Style name="Comment"
+                        index="1,10"
+                        fg="160,160,160"/>
+                <Style name="Number"
+                        index="2"
+                        fg="128,0,0"/>
+                <Style name="String"
+                        index="3,12"
+                        fg="0,0,255"/>
+                <Style name="Character"
+                        index="11"
+                        fg="0,0,255"/>
+                <Style name="Operator"
+                        index="4"
+                        fg="255,0,0"/>
+                <Style name="Identifier"
+                        index="5"
+                        fg="0,0,160"
+                        bold="1"/>
+                <Style name="CPU Instruction"
+                        index="6"
+                        fg="0,0,0"
+                        italics="1"
+                        bold="1"/>
+                <Style name="Register"
+                        index="7"
+                        fg="210,145,0"/>
+                <Style name="Directive"
+                        index="8"
+                        fg="0,0,255"/>
+                <Style name="Preprocessor"
+                        index="9"
+                        fg="0,128,0"/>
+                <Style name="Label"
+                        index="14"
+                        fg="255,0,0"/>
+                <Style name="Debugger line"
+                        index="15"
+                        fg="255,0,0"
+                        italics="1"
+                        bold="1"/>
+                <Style name="Source code in mixed view"
+                        index="16"
+                        fg="164,189,255"
+                        italics="1"
+                        bold="1"/>
+                <Keywords>
+						<!-- CPU instruction set, the second part is for instructions with width specifier (e.g. b.w or b.n) -->
+						<Set index="0"
+                        value=" swpb sxt call reti jne je jnz jz jeq jne jez jnc jlo jc jhs jn jge jl jmp
+                                mov add addc subc cmp dadd bit bic bis xor and nop push pop br ret
+                                clrc setc clrz setz clrn setn dint eint rrc rra rla rlc inv clr tst
+                                dec decd inc incd adc dadc  sbc sub
+
+                                ^rrc. ^rra. ^push. ^rla. ^rlc. ^inv. ^clr. ^tst. ^dec. ^decd.
+                                ^inc. ^incd. ^adc. ^dadc. ^sbc. ^mov. ^add. ^addc. ^subc.
+                                ^sub. ^cmp. ^dadd. ^bit. ^bic. ^bis. ^xor. ^and. "/>
+						<!-- Registers -->
+						<Set index="1" value="  r0 r1 r2 r3 r4 r5 r6 r7 r8 r9 r10 r11 r12 r13 r14 r15
+                                                sp pc sr fp"/>
+						<!-- Directives -->
+						<Set index="2" value="  alias equ ltorg align export global macro mend
+									exportas map area extern  assert field
+									mexit attr frame address nofp cn pop opt code16 push
+									preserve8 require8 common register proc function cp
+									restore qn data save reloc dcb state remember require
+									dcd dcdu dcdo unwind on off rlist dcfd dcfdu rn dcfs
+									dcfsu gbla gbll gbls dci get include seta setl  sets
+									dcq  dcqu  sn dcw  dcwu if else endif elif space fill
+									dn import subt incbin end endfunc  endp
+									info while wend entry lcla lcll lcls weak def"/>
+                </Keywords>
+                <SampleCode value="lexer_msp430.sample"/>
+                <LanguageAttributes
+                    LineComment=""
+                    StreamCommentStart=""
+                    StreamCommentEnd=""
+                    BoxCommentStart=""
+                    BoxCommentMid=""
+                    BoxCommentEnd=""
+                    CaseSensitive="0"/>
+        </Lexer>
+</EmBlocks_lexer_properties>

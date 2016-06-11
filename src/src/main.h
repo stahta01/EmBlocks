@@ -20,9 +20,9 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 
-    @version $Revision: 4 $:
+    @version $Revision: 30 $:
     @author  $Author: gerard $:
-    @date    $Date: 2013-11-02 16:53:52 +0100 (Sat, 02 Nov 2013) $:
+    @date    $Date: 2013-11-26 19:01:36 +0100 (Tue, 26 Nov 2013) $:
 
  */
 #ifndef MAIN_H
@@ -388,6 +388,7 @@ class MainFrame : public wxFrame
         wxScrollingDialog* m_pBatchBuildDialog;
         wxGauge* m_pProgressBar;
 
+        EditorBase* m_pStartHerePage;
         wxRSSReader m_RssReader;
 
         DECLARE_EVENT_TABLE()

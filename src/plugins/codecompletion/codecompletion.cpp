@@ -2,8 +2,8 @@
  * This file is part of the Em::Blocks IDE and licensed under the GNU General Public License, version 3
  * http://www.gnu.org/licenses/gpl-3.0.html
  *
- * $Revision: 4 $
- * $Id: codecompletion.cpp 4 2013-11-02 15:53:52Z gerard $
+ * $Revision: 76 $
+ * $Id: codecompletion.cpp 76 2013-12-25 08:10:32Z gerard $
  * $HeadURL: svn://svn.berlios.de/codeblocks/trunk/src/plugins/codecompletion/codecompletion.cpp $
  */
 
@@ -1835,11 +1835,6 @@ void CodeCompletion::OnCodeCompleteTimer(wxTimerEvent& event)
 
 void CodeCompletion::OnWorkspaceChanged(CodeBlocksEvent& event)
 {
-    // EVT_WORKSPACE_CHANGED is a powerful event, it's sent after any project
-    // has finished loading or closing. It's the *LAST* event to be sent when
-    // the workspace has been changed, and it's not sent if the application is
-    // shutting down. So it's the ideal time to parse files and update your
-    // widgets.
     if (IsAttached() && m_InitDone)
     {
         cbProject* project = Manager::Get()->GetProjectManager()->GetActiveProject();
@@ -1858,15 +1853,15 @@ void CodeCompletion::OnWorkspaceChanged(CodeBlocksEvent& event)
 
 void CodeCompletion::OnProjectActivated(CodeBlocksEvent& event)
 {
-    // The Class browser shouldn't be updated if we're in the middle of loading/closing
-    // a project/workspace, because the class browser would need to be updated again.
-    // So we need to update it with the EVT_WORKSPACE_CHANGED event, which gets
-    // triggered after everything's finished loading/closing.
-    if (!ProjectManager::IsBusy() && IsAttached() && m_InitDone)
+    if ( !ProjectManager::IsBusy() && IsAttached() && m_InitDone)
     {
         cbProject* project = event.GetProject();
-        if (project && !m_NativeParser.GetParserByProject(project) && project->GetFilesCount() > 0)
+
+        if(project && !m_NativeParser.GetParserByProject(project) &&  project->GetFilesCount() > 0)
             m_NativeParser.CreateParser(project);
+
+        // Update the Function toolbar
+        m_TimerToolbar.Start(TOOLBAR_REFRESH_DELAY, wxTIMER_ONE_SHOT);
 
         if (m_NativeParser.GetParser().ClassBrowserOptions().displayFilter == bdfProject)
             m_NativeParser.UpdateClassBrowser();
@@ -3136,7 +3131,8 @@ void CodeCompletion::OnCurrentProjectReparse(wxCommandEvent& event)
 
 void CodeCompletion::OnBuildTargetSelected(CodeBlocksEvent& event)
 {
-    m_NativeParser.ReparseCurrentProject();
+    if(!ProjectManager::IsBusy())
+        m_NativeParser.ReparseCurrentProject();
     event.Skip();
 }
 

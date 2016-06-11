@@ -20,9 +20,9 @@
     You should have received a copy of the GNU Lesser General Public License
     along with Em::Blocks.  If not, see <http://www.gnu.org/licenses/>.
 
-	@version $Revision: 4 $:
+	@version $Revision: 76 $:
     @author  $Author: gerard $:
-    @date    $Date: 2013-11-02 16:53:52 +0100 (Sat, 02 Nov 2013) $:
+    @date    $Date: 2013-12-25 09:10:32 +0100 (Wed, 25 Dec 2013) $:
 */
 
 #ifndef CBEDITOR_H
@@ -313,6 +313,9 @@ class DLLIMPORT cbEditor : public EditorBase
         void SetUseBom( bool bom );
 
         void SetZoom(int zoom, bool both = true);
+
+        // If new files need a restyling after the lexer is known.
+        void RestyleAfterOpen() { InternalSetEditorStyleAfterFileOpen(GetControl()); }
 
         /// Apply the editor defaults to any (possibly foreign) cbStyledTextCtrl.
         static void ApplyStyles(cbStyledTextCtrl* control);

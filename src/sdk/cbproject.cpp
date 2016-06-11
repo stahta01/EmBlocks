@@ -20,9 +20,9 @@
     You should have received a copy of the GNU Lesser General Public License
     along with Em::Blocks.  If not, see <http://www.gnu.org/licenses/>.
 
-	@version $Revision: 4 $:
+	@version $Revision: 31 $:
     @author  $Author: gerard $:
-    @date    $Date: 2013-11-02 16:53:52 +0100 (Sat, 02 Nov 2013) $:
+    @date    $Date: 2013-11-26 19:31:10 +0100 (Tue, 26 Nov 2013) $:
 */
 
 #include "sdk_precomp.h"
@@ -732,33 +732,6 @@ ProjectFile* cbProject::AddFile(const wxString& targetName, const wxString& file
 
 ProjectFile* cbProject::AddFile(int targetIndex, const wxString& filename, bool compile, bool link, unsigned short int /*weight*/)
 {
-//  NOTE (Rick#1#): When loading the project, do not search for existing files
-//  (Assumming that there are no duplicate entries in the .cbp file)
-//  This saves us a lot of processing when loading large projects.
-//  Remove the if to do the search anyway
-
-//  NOTE (mandrav#1#): We can't ignore that because even if we can rely on .cbp
-//  containing discrete files, we can't do that for imported projects...
-//  This means we have to search anyway.
-//  NP though, I added a hashmap for fast searches in GetFileByFilename()
-
-/* NOTE (mandrav#1#): Calling GetFileByFilename() twice, is costly.
-    Instead of searching for duplicate files when entering here,
-    we 'll search before exiting.
-    The rationale is that by then, we 'll have the relative filename
-    in our own representation and this will make everything quicker
-    (check GetFileByFilename implementation to understand why)...
-*/
-//    f = GetFileByFilename(filename, true, true);
-//    if (!f)
-//        f = GetFileByFilename(filename, false, true);
-//    if (f)
-//    {
-//        if (targetIndex >= 0 && targetIndex < (int)m_Targets.GetCount())
-//            f->AddBuildTarget(m_Targets[targetIndex]->GetTitle());
-//        return f;
-//    }
-
     // quick test
     ProjectFile* pf = m_ProjectFilesMap[UnixFilename(filename)];
     if (pf)
@@ -790,14 +763,6 @@ ProjectFile* cbProject::AddFile(int targetIndex, const wxString& filename, bool 
             break;
 
     }
-/*
-    ext = filename.AfterLast(_T('.')).Lower();
-    if (ext.IsSameAs(FileFilters::C_EXT))
-        pf->compilerVar = _T("CC");
-    else
-        pf->compilerVar = _T("ASM"); // default
-*/
-
 
     if (!m_Targets.GetCount())
     {
@@ -903,11 +868,28 @@ ProjectFile* cbProject::AddFile(int targetIndex, const wxString& filename, bool 
         }
         fname.Assign(GetBasePath() + wxFILE_SEP_PATH + local_filename);
     }
-    fname.Normalize(wxPATH_NORM_DOTS | wxPATH_NORM_TILDE, GetBasePath());
+    //fname.Normalize(wxPATH_NORM_DOTS | wxPATH_NORM_TILDE, GetBasePath());
+    NormalizePath(fname, GetBasePath());
 
     wxString fullFilename = realpath(fname.GetFullPath());
     pf->file = fullFilename;
+
+    // Make the local_filename part equal to the fullFilename path (upper lower case)
+    {
+        size_t x = local_filename.Length();
+        size_t y = fullFilename.Length();
+
+        while(x)
+        {
+            local_filename[--x] = fullFilename[--y];
+
+            if( (x>1) &&  (local_filename[x-1] == wxFILE_SEP_PATH) && (local_filename[x-2]== wxT('.') ))
+                break;
+        }
+    }
+
     pf->relativeFilename = UnixFilename(local_filename);
+
 
 
     // now check if we have already added this file

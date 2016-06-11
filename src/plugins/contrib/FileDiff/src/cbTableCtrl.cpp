@@ -61,8 +61,8 @@ void cbTableCtrl::ShowDiff(wxDiff diff)
     m_txtctrl->ClearAll();
     wxTextFile tff(diff.GetFromFilename());
     wxTextFile tft(diff.GetToFilename());
-    tff.Open();
-    tft.Open();
+    tff.Open(wxConvLibc);
+    tft.Open(wxConvLibc);
     bool refillfrom = false;
     bool refillto = false;
     wxString strfrom = tff.GetFirstLine();

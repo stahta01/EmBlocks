@@ -1,0 +1,28 @@
+; *****************************************************************************
+; Comment
+;
+; *****************************************************************************
+
+#include "msp430x14x.h" ; Processor specific definitions
+
+    NAME Port1
+    EXTERN rand ; Std C function
+    EXTERN mult ;
+
+;============================================================================
+; set_port_rand
+;============================================================================
+
+    PUBLIC set_port_rand ; Declare symbol to be exported
+    RSEG CODE ; Code is relocatable
+
+set_port_rand;
+    call #rand ; Call rand() -> value stored at R12
+
+    mov #25,R14 ; 2nd operand -> R14
+                ; 1st operand -> R12 from rand() function
+    call #mult ; return in R12 / R13
+    mov.b R12,&P1OUT ; Move low byte of R12 to Port 1 output
+    ret
+
+    END

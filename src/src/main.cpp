@@ -20,9 +20,9 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 
-    @version $Revision: 4 $:
+    @version $Revision: 76 $:
     @author  $Author: gerard $:
-    @date    $Date: 2013-11-02 16:53:52 +0100 (Sat, 02 Nov 2013) $:
+    @date    $Date: 2013-12-25 09:10:32 +0100 (Wed, 25 Dec 2013) $:
 
  */
 #include <sdk.h>
@@ -541,9 +541,9 @@ MainFrame::MainFrame(wxWindow* parent)
       m_pScriptConsole(0),
       m_pBatchBuildDialog(0),
       m_pProgressBar(0),
+      m_pStartHerePage(0),
       m_RssReader(this)
 {
-
     // register event sinks
     RegisterEvents();
 
@@ -553,6 +553,9 @@ MainFrame::MainFrame(wxWindow* parent)
 
     // New: Allow drag and drop of files into the editor
     SetDropTarget(new wxMyFileDropTarget(this));
+
+    // Only support LTR layouts
+    SetLayoutDirection(wxLayout_LeftToRight);
 
     // Accelerator table
     wxAcceleratorEntry entries[8];
@@ -1815,7 +1818,6 @@ void MainFrame::DoCreateStatusBar()
     wxCoord width[16]; // 16 max
 
     wxClientDC dc(this);
-    wxFont font = dc.GetFont();
     int h;
     int num = 0;
 
@@ -2031,17 +2033,18 @@ void MainFrame::OnStartPageUpdate(CodeBlocksEvent& event)
     }
 
 
-    EditorBase* sh = Manager::Get()->GetEditorManager()->GetEditor(g_StartHereTitle);
+    m_pStartHerePage = Manager::Get()->GetEditorManager()->GetEditor(g_StartHereTitle);
 
-    if (show && !sh)
+    if (show && !m_pStartHerePage)
     {
-        sh = new StartHerePage(this, Manager::Get()->GetEditorManager()->GetNotebook());
+        m_pStartHerePage = new StartHerePage(this, Manager::Get()->GetEditorManager()->GetNotebook());
         m_RssReader.UpdateFeed();
         Manager::Get()->GetLogManager()->ClearLog(-1); // Clear all the log windows
     }
-    else if (!show && sh)
+    else if (!show && m_pStartHerePage)
     {
-        sh->Destroy();
+        m_pStartHerePage->Destroy();
+        m_pStartHerePage = NULL;
     }
 
     Manager::Get()->GetEditorManager()->HideCloseButtons(show);
@@ -2141,17 +2144,15 @@ void MainFrame::AskToRemoveFileFromHistory(wxFileHistory* hist, int id, bool can
     {
         hist->RemoveFileFromHistory(id);
         // update start here page
-        EditorBase* sh = Manager::Get()->GetEditorManager()->GetEditor(g_StartHereTitle);
-        if (sh)
-            ((StartHerePage*)sh)->Reload();
+        if (m_pStartHerePage)
+            ((StartHerePage*)m_pStartHerePage)->Reload();
     }
 }
 
 void MainFrame::OnRssFeedUpdate(CodeBlocksEvent& event)
 {
-    StartHerePage* sp = (StartHerePage*)Manager::Get()->GetEditorManager()->GetEditor(g_StartHereTitle);
-    if (sp)
-        sp->Reload();
+    if (m_pStartHerePage)
+        ((StartHerePage*)m_pStartHerePage)->Reload();
 
 
     // Check if we have notifications in our RSS posts.
@@ -2181,8 +2182,7 @@ void MainFrame::OnRssFeedUpdate(CodeBlocksEvent& event)
 
 void MainFrame::OnStartHereVarSubst(wxCommandEvent& event)
 {
-    StartHerePage* sh =  (StartHerePage*)Manager::Get()->GetEditorManager()->GetEditor(g_StartHereTitle);
-    if (!sh)
+    if (!event.GetClientData())
         return;
 
     // replace history vars
@@ -2282,7 +2282,7 @@ void MainFrame::OnStartHereVarSubst(wxCommandEvent& event)
     buf.Replace(_T("EB_TXT_REQ_NEW_FEATURE"), _("Request a new feature"));
 
 
-    ((StartHerePage*)sh)->SetPageContent(buf);
+    ((StartHerePage*)event.GetClientData())->SetPageContent(buf);
 }
 
 void MainFrame::InitializeRecentFilesHistory()
@@ -2404,9 +2404,8 @@ void MainFrame::AddToRecentFilesHistory(const wxString& FileName)
     }
 
     // update start here page
-    EditorBase* sh = Manager::Get()->GetEditorManager()->GetEditor(g_StartHereTitle);
-    if (sh)
-        ((StartHerePage*)sh)->Reload();
+    if (m_pStartHerePage)
+        ((StartHerePage*)m_pStartHerePage)->Reload();
 }
 
 void MainFrame::AddToRecentProjectsHistory(const wxString& FileName)
@@ -2463,11 +2462,6 @@ void MainFrame::AddToRecentProjectsHistory(const wxString& FileName)
             }
         }
     }
-
-    // update start here page
-    EditorBase* sh = Manager::Get()->GetEditorManager()->GetEditor(g_StartHereTitle);
-    if (sh)
-        ((StartHerePage*)sh)->Reload();
 }
 
 void MainFrame::TerminateRecentFilesHistory()
@@ -2699,6 +2693,7 @@ void MainFrame::OnFileNewWhat(wxCommandEvent& event)
         {
             ProjectFile* pf = project->GetFileByFilename(ed->GetFilename(), false);
             ed->SetProjectFile(pf);
+            ed->RestyleAfterOpen(); // We know the extension now so restyle the lexer.
             Manager::Get()->GetProjectManager()->RebuildTree();
         }
     }
@@ -2821,9 +2816,8 @@ void MainFrame::OnFileOpenRecentProjectClearHistory(wxCommandEvent& /*event*/)
 
     // update start here page
     InitializeRecentFilesHistory();
-    EditorBase* sh = Manager::Get()->GetEditorManager()->GetEditor(g_StartHereTitle);
-    if (sh)
-        ((StartHerePage*)sh)->Reload();
+    if (m_pStartHerePage)
+            ((StartHerePage*)m_pStartHerePage)->Reload();
 }
 
 void MainFrame::OnFileReopen(wxCommandEvent& event)
@@ -4074,14 +4068,13 @@ void MainFrame::OnFileMenuUpdateUI(wxUpdateUIEvent& event)
     }
     EditorBase* ed = Manager::Get()->GetEditorManager() ? Manager::Get()->GetEditorManager()->GetActiveEditor() : 0;
     cbProject* prj = Manager::Get()->GetProjectManager() ? Manager::Get()->GetProjectManager()->GetActiveProject() : 0L;
-    EditorBase* sh = Manager::Get()->GetEditorManager()->GetEditor(g_StartHereTitle);
     cbWorkspace* wksp = Manager::Get()->GetProjectManager()->GetWorkspace();
     wxMenuBar* mbar = GetMenuBar();
 
     bool canCloseProject = (ProjectManager::CanShutdown() && EditorManager::CanShutdown())
                            && prj && !prj->GetCurrentlyCompilingTarget();
-    bool canClose = ed && !(sh && Manager::Get()->GetEditorManager()->GetEditorsCount() == 1);
-    bool canSaveFiles = ed && !(sh && Manager::Get()->GetEditorManager()->GetEditorsCount() == 1);
+    bool canClose = ed && !(m_pStartHerePage && Manager::Get()->GetEditorManager()->GetEditorsCount() == 1);
+    bool canSaveFiles = ed && !(m_pStartHerePage && Manager::Get()->GetEditorManager()->GetEditorsCount() == 1);
 
     bool canSaveAll = (prj && prj->GetModified()) || canSaveFiles || (wksp && !wksp->IsDefault() && wksp->GetModified());
 
