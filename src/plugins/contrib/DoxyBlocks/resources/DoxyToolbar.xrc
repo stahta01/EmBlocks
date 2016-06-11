@@ -1,0 +1,88 @@
+<?xml version="1.0" ?>
+<!--
+ * This file is part of the Em::Blocks IDE and licensed under the GNU General Public License, version 3
+ * http://www.gnu.org/licenses/gpl-3.0.html
+ *
+ -->
+<resource>
+  <object class="wxToolBarAddOn" name="doxyblocks_toolbar_16x16">
+    <object class="tool" name="ID_TB_WIZARD">
+      <tooltip>Doxywizard</tooltip>
+      <longhelp>Run doxywizard</longhelp>
+      <bitmap>images/16x16/doxywizard.png</bitmap>
+    </object>
+    <object class="tool" name="ID_TB_EXTRACTPROJECT">
+      <tooltip>Document project</tooltip>
+      <longhelp>Extract documentation for the current project</longhelp>
+      <bitmap>images/16x16/extract.png</bitmap>
+    </object>
+    <object class="separator" />
+    <object class="tool" name="ID_TB_BLOCKCOMMENT">
+      <tooltip>Block Comment</tooltip>
+      <longhelp>Insert a comment block at the current line</longhelp>
+      <bitmap>images/16x16/comment_block.png</bitmap>
+    </object>
+    <object class="tool" name="ID_TB_LINECOMMENT">
+      <tooltip>Line Comment</tooltip>
+      <longhelp>Insert a line comment at the current cursor position</longhelp>
+      <bitmap>images/16x16/comment_line.png</bitmap>
+    </object>
+    <object class="separator" />
+    <object class="tool" name="ID_TB_RUNHTML">
+      <tooltip>Run HTML</tooltip>
+      <longhelp>Run HTML documentation</longhelp>
+      <bitmap>images/16x16/html.png</bitmap>
+    </object>
+    <object class="tool" name="ID_TB_RUNCHM">
+      <tooltip>Run CHM</tooltip>
+      <longhelp>Run HTML Help documentation</longhelp>
+      <bitmap>images/16x16/chm.png</bitmap>
+    </object>
+    <object class="separator" />
+    <object class="tool" name="ID_TB_CONFIG">
+      <tooltip>Open Preferences</tooltip>
+      <longhelp>Open DoxyBlocks' preferences</longhelp>
+      <bitmap>images/16x16/configure.png</bitmap>
+    </object>
+  </object>
+  <object class="wxToolBarAddOn" name="doxyblocks_toolbar">
+    <object class="tool" name="ID_TB_WIZARD">
+      <tooltip>Doxywizard</tooltip>
+      <longhelp>Run doxywizard</longhelp>
+      <bitmap>images/doxywizard.png</bitmap>
+    </object>
+    <object class="tool" name="ID_TB_EXTRACTPROJECT">
+      <tooltip>Document project</tooltip>
+      <longhelp>Extract documentation for the current project</longhelp>
+      <bitmap>images/extract.png</bitmap>
+    </object>
+    <object class="separator" />
+    <object class="tool" name="ID_TB_BLOCKCOMMENT">
+      <tooltip>Block Comment</tooltip>
+      <longhelp>Insert a comment block at the current line</longhelp>
+      <bitmap>images/comment_block.png</bitmap>
+    </object>
+    <object class="tool" name="ID_TB_LINECOMMENT">
+      <tooltip>Line Comment</tooltip>
+      <longhelp>Insert a line comment at the current cursor position</longhelp>
+      <bitmap>images/comment_line.png</bitmap>
+    </object>
+    <object class="separator" />
+    <object class="tool" name="ID_TB_RUNHTML">
+      <tooltip>Run HTML</tooltip>
+      <longhelp>Run HTML documentation</longhelp>
+      <bitmap>images/html.png</bitmap>
+    </object>
+    <object class="tool" name="ID_TB_RUNCHM">
+      <tooltip>Run CHM</tooltip>
+      <longhelp>Run HTML Help documentation</longhelp>
+      <bitmap>images/chm.png</bitmap>
+    </object>
+    <object class="separator" />
+    <object class="tool" name="ID_TB_CONFIG">
+      <tooltip>Open Preferences</tooltip>
+      <longhelp>Open DoxyBlocks' preferences</longhelp>
+      <bitmap>images/configure.png</bitmap>
+    </object>
+  </object>
+</resource>

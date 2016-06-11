@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<EmBlocks_plugin_manifest_file>
+    <SdkVersion major="1" minor="0"  release="0" />
+    <Plugin name="BrowseTracker">
+        <Value title="BrowseTracker" />
+        <Value version="0.1" />
+        <Value description="Browse to previous source positions" />
+        <Value author="Pecan Heber" />
+        <Value authorEmail="" />
+        <Value authorWebsite="" />
+        <Value thanksTo="" />
+        <Value license="GPL" />
+    </Plugin>
+</EmBlocks_plugin_manifest_file>

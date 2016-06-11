@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="IncrementalSearch" />
+		<Option pch_mode="2" />
+		<Option compiler="gcc" />
+		<Build>
+			<Target title="default">
+				<Option output="..\..\..\build\share\emblocks\plugins\IncrementalSearch" prefix_auto="1" extension_auto="1" />
+				<Option object_output="..\..\..\foo\.objs" />
+				<Option type="3" />
+				<Option compiler="gcc" />
+				<Option parameters="--debug-log --multiple-instance -na -ns -nd" />
+				<Option host_application="..\..\..\build\codeblocks.exe" />
+				<Compiler>
+					<Add option="-Wall" />
+					<Add option="-g" />
+					<Add option="-pipe" />
+					<Add option="-mthreads" />
+					<Add option="-fmessage-length=0" />
+					<Add option="-fexceptions" />
+					<Add option="-Winvalid-pch" />
+					<Add option="-DHAVE_W32API_H" />
+					<Add option="-D__WXMSW__" />
+					<Add option="-DWXUSINGDLL" />
+					<Add option="-DBUILDING_PLUGIN" />
+					<Add option="-DCB_PRECOMP" />
+					<Add option="-DWX_PRECOMP" />
+					<Add option="-DwxUSE_UNICODE" />
+					<Add option="-DWXMAKINGDLL_PROPGRID" />
+					<Add option="-DwxPG_USE_WXMODULE=0" />
+					<Add directory="..\..\..\sdk\include" />
+					<Add directory="..\..\..\sdk\wxscintilla\include" />
+					<Add directory="$(#EWX.include)" />
+					<Add directory="$(#EWX.lib)\gcc_dll$(WX_CFG)\msw$(WX_SUFFIX)" />
+					<Add directory="$(#EWX)\contrib\include" />
+				</Compiler>
+				<Linker>
+					<Add option="-mthreads" />
+					<Add library="emblocks" />
+					<Add library="wxmsw$(WX_VERSION)" />
+					<Add directory="..\..\..\build" />
+					<Add directory="$(#EWX.lib)\gcc_dll$(WX_CFG)" />
+				</Linker>
+				<ExtraCommands>
+					<Add after=".\resources\make_zip.bat" />
+					<Mode after="always" />
+				</ExtraCommands>
+				<Environment>
+					<Variable name="WX_CFG" value="_wxeb" />
+					<Variable name="WX_SUFFIX" value="u" />
+					<Variable name="WX_VERSION" value="1" />
+				</Environment>
+			</Target>
+		</Build>
+		<VirtualTargets>
+			<Add alias="All" targets="default;" />
+		</VirtualTargets>
+		<Unit filename="IncrementalSearch.cpp" />
+		<Unit filename="IncrementalSearch.h" />
+		<Unit filename="IncrementalSearchConfDlg.cpp" />
+		<Unit filename="IncrementalSearchConfDlg.h" />
+		<Unit filename="resources\IncrementalSearchConfDlg.xrc" />
+		<Unit filename="resources\IncrementalSearchToolbar.xrc" />
+		<Unit filename="resources\make_zip.bat" />
+		<Unit filename="resources\manifest.xml" />
+		<Extensions>
+			<code_completion />
+			<envvars />
+			<debugger />
+			<lib_finder disable_auto="1" />
+			<wxsmith version="1">
+				<gui name="wxWidgets" src="myapp.cpp" main="-- None --" init_handlers="necessary" language="CPP" />
+			</wxsmith>
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>

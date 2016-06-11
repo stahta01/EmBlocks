@@ -1,0 +1,96 @@
+<?xml version="1.0"?>
+<!DOCTYPE EmBlocks_lexer_properties>
+<EmBlocks_lexer_properties>
+        <Lexer name="Microchip C30 Assembler"
+                index="102">
+                <Style name="Default"
+                        index="0"
+                        fg="0,0,0"
+                        bg="255,255,255"
+                        bold="0"
+                        italics="0"
+                        underlined="0"/>
+                <Style name="Comment"
+                        index="1,10"
+                        fg="160,160,160"/>
+                <Style name="Number"
+                        index="2"
+                        fg="128,0,0"/>
+                <Style name="String"
+                        index="3,12"
+                        fg="0,0,255"/>
+                <Style name="Character"
+                        index="11"
+                        fg="0,0,255"/>
+                <Style name="Operator"
+                        index="4"
+                        fg="255,0,0"/>
+                <Style name="Identifier"
+                        index="5"
+                        fg="0,0,160"
+                        bold="1"/>
+                <Style name="CPU Instruction"
+                        index="6"
+                        fg="0,0,0"
+                        italics="1"
+                        bold="1"/>
+                <Style name="Register"
+                        index="7"
+                        fg="210,145,0"/>
+                <Style name="Directive"
+                        index="8"
+                        fg="0,0,255"/>
+                <Style name="Preprocessor"
+                        index="9"
+                        fg="0,128,0"/>
+                <Style name="Label"
+                        index="14"
+                        fg="255,0,0"/>
+                <Style name="Debugger line"
+                        index="15"
+                        fg="255,0,0"
+                        italics="1"
+                        bold="1"/>
+                <Style name="Source code in mixed view"
+                        index="16"
+                        fg="164,189,255"
+                        italics="1"
+                        bold="1"/>
+                <Keywords>
+                        <!-- CPU instruction set -->
+                        <Language index="0" value="	exch mov mov.b mov.d swap tblrdh tblrdl tblwth tblwtl
+                                                    add addc daw.b dec dec2 div.s div.sd div.u div.ud
+                                                    divf inc inc2 mul mul.ss mul.su mul.su mul.us mul.uu
+                                                    se sub subb subbr subr ze and clr com ior neg setm
+                                                    xor asr lsr rlc rlnc rrc rrnc sl bclr bclr.b bset bsw.c bsw.z
+                                                    btg btst btst.c btst.z btsts btsts.c btsts.z fbcl ff1l
+                                                    ff1r btsc btss cp cp0 cpb cpseq cpsgt cpslt cpsne bra
+                                                    call do goto rcall repeat retfie retlw return lnk pop
+                                                    pop.d pop.s push push.d push.s ulnk clrwdt disi nop
+                                                    nopr pwrsav reset ed edac lac mac movsac mpy mpy.n
+                                                    msc neg sac sac.r sftac "/>
+						<!-- Registers -->
+						<Set index="1" value=" wreg w0 w1 w2 w3 w4 w5 w6 w7 w8 w9 w10
+                                               w11 w12 w13 w14 w15 a b ov c z n ge lt
+                                               gt le nov nc nz nn geu ltu gtu leu oa ob sa sb"/>
+						<!-- Directives -->
+						<Set index="2" value="  .section .text .bss .data
+                                                .ascii .asciz .byte .pbyte .word .pword .long .float .double
+                                                .comm .extern .global .weak .equ .equiv
+                                                .align .palign .fill .pfill .org .porg .skip .pskip .space .pspace
+                                                .if .ifdef .ifndef .else .endif .err
+                                                tblpage tbloffset psvpage psvoffset paddr handle .sizeof. .startof.
+                                                .include "/>
+                </Keywords>
+                <SampleCode value="lexer_c30.sample"
+                        error_line="50"/>
+                <LanguageAttributes
+                    LineComment="//"
+                    StreamCommentStart="/*"
+                    StreamCommentEnd="*/"
+                    BoxCommentStart="/* "
+                    BoxCommentMid=" * "
+                    BoxCommentEnd=" */"
+                    CaseSensitive="0"/>
+        </Lexer>
+</EmBlocks_lexer_properties>

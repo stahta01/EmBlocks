@@ -1,0 +1,40 @@
+#include <avr/io.h>
+
+work    =       16
+tmp     =       17
+inttmp  =       19
+intsav  =       0
+SQUARE  =       PD6
+
+                                ; Note [4]:
+tmconst= 10700000 / 200000      ; 100 kHz => 200000 edges/s
+#define fuzz  8                 ; # clocks in ISR until TCNT0 is set
+
+        .section .text
+
+        .global main
+main:
+        rcall   ioinit
+
+        ldi	r24, lo8(pm(somefunc))
+        ldi	r25, hi8(pm(somefunc))
+        call	something
+        rjmp    1b
+
+        .global TIMER0_OVF_vect
+TIMER0_OVF_vect:
+        ldi     inttmp, 256 - tmconst + fuzz
+        out     _SFR_IO_ADDR(TCNT0), inttmp
+        in      intsav, _SFR_IO_ADDR(SREG)
+
+        sbic    _SFR_IO_ADDR(PORTD), SQUARE
+        rjmp    1f
+        reti
+
+        ret
+
+        .global __vector_default
+__vector_default:
+        reti
+
+        .end

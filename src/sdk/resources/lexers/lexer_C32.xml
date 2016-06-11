@@ -1,0 +1,106 @@
+<?xml version="1.0"?>
+<!DOCTYPE EmBlocks_lexer_properties>
+<EmBlocks_lexer_properties>
+        <Lexer name="Microchip C32 Assembler"
+                index="102">
+                <Style name="Default"
+                        index="0"
+                        fg="0,0,0"
+                        bg="255,255,255"
+                        bold="0"
+                        italics="0"
+                        underlined="0"/>
+                <Style name="Comment"
+                        index="1,10"
+                        fg="160,160,160"/>
+                <Style name="Number"
+                        index="2"
+                        fg="128,0,0"/>
+                <Style name="String"
+                        index="3,12"
+                        fg="0,0,255"/>
+                <Style name="Character"
+                        index="11"
+                        fg="0,0,255"/>
+                <Style name="Operator"
+                        index="4"
+                        fg="255,0,0"/>
+                <Style name="Identifier"
+                        index="5"
+                        fg="0,0,160"
+                        bold="1"/>
+                <Style name="CPU Instruction"
+                        index="6"
+                        fg="0,0,0"
+                        italics="1"
+                        bold="1"/>
+                <Style name="Register"
+                        index="7"
+                        fg="210,145,0"/>
+                <Style name="Directive"
+                        index="8"
+                        fg="0,0,255"/>
+                <Style name="Preprocessor"
+                        index="9"
+                        fg="0,128,0"/>
+                <Style name="Label"
+                        index="14"
+                        fg="255,0,0"/>
+                <Style name="Debugger line"
+                        index="15"
+                        fg="255,0,0"
+                        italics="1"
+                        bold="1"/>
+                <Style name="Source code in mixed view"
+                        index="16"
+                        fg="164,189,255"
+                        italics="1"
+                        bold="1"/>
+                <Keywords>
+						<!-- CPU instruction set -->
+						<Set index="0"
+                                    value=" add addi addiu addu and andi
+			               					b bal bc2f bc2fl bc2t beq beql beqz bgez bgezal bgezall bgezl
+               								bgtz bgtzl blez blezl bltz bltzal bltzall bltzl bnez
+               								bne bnel break cache cf2 clo clz cop0 cop2 ctc2
+               								deret di div divu ehb ei eret ext ins
+               								j jal jalr jalr.hb jr jr.hb la lb lbu lh lhu ll lui li
+               								lw lwc2 lwl lwr madd mfc0 mfc2 mfhi mflo novn mov move movz msub
+               								msubu mtc0 mtc2 mthc2 mthi mtlo mul mult nop nor or ori
+               								pref rdhwr rdpgpr rotr rotrv sb sc sdbbp seb seh sh sll
+               								sllv slti sltiu sltu sra srav srl srlv ssnop sub subu sw
+               								swc2 swl swr sync sunci syscall teq teqi tge tgeiu
+               								tgeu tlt tlti tltiu tltu tne wait wrpgpr wsbh xor xori "/>
+						<!-- Registers -->
+						<Set index="1" value=" zero at
+                                               v0 v1
+                                               a0 a1 a2 a3 a4 a5 a6 a7
+                                               t0 t1 t2 t3 t4 t5 t6 t7 t8 t9
+                                               s0 s1 s2 s3 s4 s5 s6 s7 s8
+                                               k0 k1
+                                               gp sp fp ra "/>
+						<!-- Directives -->
+						<Set index="2" value="  .bss .data .pushsection .popsection .section .text .ascii .asciz
+                                                .byte .double .float .single .hword .int .long .short .string .word
+                                                .comm .extern .global .lcomm .weak
+                                                .equ .equiv
+                                                .align .fill .org .skip .space .struct
+                                                .eject .list .nolist .psize .sbttl .title
+                                                .else .elseif .endif .if
+                                                .exitm .irp .irpc .macro
+                                                .incbin .include
+                                                .abort .err .error .fail .ident .print .version .warning
+                                                .ent .end .file .fmask .frame .loc .mask .size .sleb128 .type .uleb128
+                                                .set "/>
+                </Keywords>
+                <SampleCode value="lexer_C32.sample"/>
+                <LanguageAttributes
+                    LineComment=""
+                    StreamCommentStart=""
+                    StreamCommentEnd=""
+                    BoxCommentStart=""
+                    BoxCommentMid=""
+                    BoxCommentEnd=""
+                    CaseSensitive="1"/>
+        </Lexer>
+</EmBlocks_lexer_properties>

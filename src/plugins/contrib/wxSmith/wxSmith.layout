@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_layout_file>
+	<ActiveTarget name="All" />
+	<File name="plugin\wxsmithpluginregistrants.cpp" open="0" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor1 position="1041" topLine="0" />
+	</File>
+	<File name="properties\wxsboolproperty.cpp" open="1" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor1 position="1298" topLine="1" />
+	</File>
+	<File name="properties\wxscustomeditorproperty.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor1 position="1331" topLine="54" />
+	</File>
+	<File name="properties\wxsproperty.cpp" open="1" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor1 position="1258" topLine="13" />
+	</File>
+	<File name="properties\wxspropertycontainer.cpp" open="1" top="1" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor1 position="1068" topLine="102" />
+	</File>
+	<File name="properties\wxsstringproperty.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor1 position="4285" topLine="111" />
+	</File>
+	<File name="wxscodinglang.cpp" open="0" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor1 position="1020" topLine="227" />
+	</File>
+	<File name="wxsextresmanager.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor1 position="2038" topLine="39" />
+	</File>
+	<File name="wxsmith.cpp" open="0" top="0" tabpos="6" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor1 position="1347" topLine="33" />
+	</File>
+	<File name="wxsmith.h" open="0" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor1 position="1190" topLine="19" />
+	</File>
+	<File name="wxsmithmime.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor1 position="1113" topLine="0" />
+	</File>
+	<File name="wxsresourcefactory.cpp" open="0" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor1 position="1413" topLine="19" />
+	</File>
+	<File name="wxsresourcefactory.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor1 position="1214" topLine="21" />
+	</File>
+	<File name="wxsresourcetree.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor1 position="1139" topLine="6" />
+	</File>
+	<File name="wxwidgets\defitems\wxsbitmapcombobox.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor1 position="5504" topLine="159" />
+	</File>
+	<File name="wxwidgets\defitems\wxsglcanvas.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor1 position="1060" topLine="20" />
+	</File>
+	<File name="wxwidgets\defitems\wxstreebook.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor1 position="1007" topLine="0" />
+	</File>
+	<File name="wxwidgets\properties\wxsimagelistdlg.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor1 position="31994" topLine="881" />
+	</File>
+	<File name="wxwidgets\wxsflags.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor1 position="1090" topLine="15" />
+	</File>
+	<File name="wxwidgets\wxsitem.cpp" open="0" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor1 position="12076" topLine="342" />
+	</File>
+	<File name="wxwidgets\wxwidgetsresfactory.cpp" open="0" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor1 position="1364" topLine="23" />
+	</File>
+	<File name="wxwidgets\wxwidgetsresfactory.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor1 position="1198" topLine="10" />
+	</File>
+</CodeBlocks_layout_file>

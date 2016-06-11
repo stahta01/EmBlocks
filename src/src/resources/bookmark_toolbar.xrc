@@ -1,0 +1,26 @@
+<?xml version="1.0" ?>
+<resource>
+<object class="wxToolBarAddOn" name="bookmark_toolbar">
+<bitmapsize>16,16</bitmapsize>
+  <object class="tool" name="idToggleBookmark">
+   <tooltip>Toggle</tooltip>
+   <longhelp>Toggle bookmark at current position</longhelp>
+   <bitmap>images/16x16/mark_toggle.png</bitmap>
+  </object>
+  <object class="tool" name="idPrevBookmark">
+   <tooltip>Previous</tooltip>
+   <longhelp>Previous bookmark</longhelp>
+   <bitmap>images/16x16/mark_prev.png</bitmap>
+  </object>
+   <object class="tool" name="idNextBookmark">
+   <tooltip>Next</tooltip>
+   <longhelp>Next bookmark</longhelp>
+   <bitmap>images/16x16/mark_next.png</bitmap>
+  </object>
+   <object class="tool" name="idClearBookmark">
+   <tooltip>Clear</tooltip>
+   <longhelp>Clear all the bookmarks</longhelp>
+   <bitmap>images/16x16/mark_clear.png</bitmap>
+  </object>
+</object>
+</resource>

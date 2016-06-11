@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<resource>
+    <object class="wxBitmap" name="bmp_general_prefs">images/general-prefs.png</object>
+    <object class="wxBitmap" name="bmp_view">images/view.png</object>
+    <object class="wxBitmap" name="bmp_notebook-appearance">images/notebook-appearance.png</object>
+    <object class="wxBitmap" name="bmp_dialogs">images/dialogs.png</object>
+    <object class="wxBitmap" name="bmp_net">images/net.png</object>
+    <object class="wxBitmap" name="bmp_colours">images/colours.png</object>
+    <object class="wxBitmap" name="bmp_batch">images/batch.png</object>
+
+    <object class="wxBitmap" name="edit_16x16_png">images/16x16/edit.png</object>
+    <object class="wxBitmap" name="filefind_16x16_png">images/16x16/filefind.png</object>
+    <object class="wxBitmap" name="checked_png">images/16x16/checked.png</object>
+</resource>

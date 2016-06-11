@@ -1,0 +1,37 @@
+<resource>
+	<object class="wxScrollingDialog" name="askAssoc">
+		<title>File associations</title>
+		<centered>1</centered>
+		<object class="wxBoxSizer">
+			<orient>wxVERTICAL</orient>
+			<object class="sizeritem">
+				<object class="wxStaticText" name="ID_STATICTEXT1">
+					<label>Em::Blocks is currently not the default application for C/C++ source files.&#x0D;&#x0A;Do you want to set it as default?&#x0D;&#x0A;&#x0D;&#x0A;You can always change associations from the environment settings later.</label>
+				</object>
+				<flag>wxALL|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL</flag>
+				<border>10</border>
+			</object>
+			<object class="sizeritem">
+				<object class="wxRadioBox" name="choice">
+					<label></label>
+					<content>
+						<item>No, leave everything as it is</item>
+						<item>No, leave everything as it is (but ask me again next time)</item>
+						<item>Yes, associate Em::Blocks with project and workspace files</item>
+						<item>Yes, associate Em::Blocks with every supported type (including  C/C++ file types)</item>
+					</content>
+					<style>wxRA_SPECIFY_COLS|wxNO_BORDER</style>
+				</object>
+				<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+				<border>10</border>
+			</object>
+			<object class="sizeritem">
+				<object class="wxButton" name="wxID_OK">
+					<label>OK</label>
+				</object>
+				<flag>wxALL|wxALIGN_RIGHT|wxALIGN_CENTER_VERTICAL</flag>
+				<border>10</border>
+			</object>
+		</object>
+	</object>
+</resource>

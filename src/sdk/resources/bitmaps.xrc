@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<resource xmlns="http://www.wxwidgets.org/wxxrc">
+    <object class="wxBitmap" name="bmp_generic">images/generic-plugin.png</object>
+    <object class="wxBitmap" name="bmp_editor">images/editor.png</object>
+    <object class="wxBitmap" name="bmp_folding">images/folding.png</object>
+    <object class="wxBitmap" name="bmp_gutter-margin">images/gutter-margin.png</object>
+    <object class="wxBitmap" name="bmp_syntax-highlight">images/syntax-highlight.png</object>
+    <object class="wxBitmap" name="bmp_default-code">images/default-code.png</object>
+
+    <object class="wxBitmap" name="project_manager_png">project_img/project_manager.png</object>
+    <object class="wxBitmap" name="file_ascii_png">project_img/file-ascii.png</object>
+
+    <object class="wxBitmap" name="file_png">project_img/file.png</object>
+    <object class="wxBitmap" name="file-missing_png">project_img/file-missing.png</object>
+    <object class="wxBitmap" name="file-modified_png">project_img/file-modified.png</object>
+    <object class="wxBitmap" name="file-readonly_png">project_img/file-readonly.png</object>
+
+    <object class="wxBitmap" name="file-c_png">project_img/file-c.png</object>
+    <object class="wxBitmap" name="file-c-missing_png">project_img/file-c-missing.png</object>
+    <object class="wxBitmap" name="file-c-modified_png">project_img/file-c-modified.png</object>
+    <object class="wxBitmap" name="file-c-readonly_png">project_img/file-c-readonly.png</object>
+
+    <object class="wxBitmap" name="rc-file-added_png">project_img/rc-file-added.png</object>
+    <object class="wxBitmap" name="rc-file-conflict_png">project_img/rc-file-conflict.png</object>
+    <object class="wxBitmap" name="rc-file-missing_png">project_img/rc-file-missing.png</object>
+    <object class="wxBitmap" name="rc-file-modified_png">project_img/rc-file-modified.png</object>
+    <object class="wxBitmap" name="rc-file-outofdate_png">project_img/rc-file-outofdate.png</object>
+    <object class="wxBitmap" name="rc-file-uptodate_png">project_img/rc-file-uptodate.png</object>
+    <object class="wxBitmap" name="rc-file-requireslock_png">project_img/rc-file-requireslock.png</object>
+    <object class="wxBitmap" name="rc-file-external_png">project_img/rc-file-external.png</object>
+    <object class="wxBitmap" name="rc-file-gotlock_png">project_img/rc-file-gotlock.png</object>
+    <object class="wxBitmap" name="rc-file-lockstolen_png">project_img/rc-file-lockstolen.png</object>
+    <object class="wxBitmap" name="rc-file-mismatch_png">project_img/rc-file-mismatch.png</object>
+    <object class="wxBitmap" name="rc-file-noncontrolled_png">project_img/rc-file-noncontrolled.png</object>
+    <object class="wxBitmap" name="workspace_png">project_img/workspace.png</object>
+    <object class="wxBitmap" name="workspace-readonly_png">project_img/workspace-readonly.png</object>
+    <object class="wxBitmap" name="project_png">project_img/project.png</object>
+    <object class="wxBitmap" name="project-readonly_png">project_img/project-readonly.png</object>
+    <object class="wxBitmap" name="folder_open_png">project_img/folder_open.png</object>
+    <object class="wxBitmap" name="vfolder_open_png">project_img/vfolder_open.png</object>
+    <object class="wxBitmap" name="library_png">project_img/library.png</object>
+    <object class="wxBitmap" name="library-readonly_png">project_img/library-readonly.png</object>
+
+    <object class="wxBitmap" name="split_vert_png">editor_img/split_vert.png</object>
+    <object class="wxBitmap" name="split_horz_png">editor_img/split_horz.png</object>
+</resource>

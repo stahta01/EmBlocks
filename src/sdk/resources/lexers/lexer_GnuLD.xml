@@ -1,0 +1,100 @@
+<?xml version="1.0"?>
+<!DOCTYPE EmBlocks_lexer_properties>
+<EmBlocks_lexer_properties>
+		<Lexer name="GNU Linker scripts"
+				index="103"
+				filemasks="*.ld"
+				show="true"
+				internal="true">
+				<Style name="Default"
+						index="0"
+						fg="0,0,0"
+                        bg="255,255,255"
+						bold="0"
+						italics="0"
+						underlined="0"/>
+				<Style name="Comment"
+						index="1"
+						fg="160,160,160"/>
+				<Style name="Commentline"
+						index="2"
+						fg="160,160,160"/>
+				<Style name="Number"
+						index="4"
+						fg="240,0,240"/>
+				<Style name="String"
+						index="5,6"
+						fg="255,0,128"
+						italics="1"/>
+				<Style name="Character"
+						index="7"
+						fg="224,160,0"/>
+				<Style name="Operator"
+						index="8"
+						fg="255,0,0"
+						bold="1"/>
+				<Style name="Primary keywords and identifiers (Keywords #1)"
+						index="9"
+						fg="0,0,160"
+						bold="1"/>
+				<Style name="Scripting keywords (Keywords #2)"
+						index="10"
+						fg="0,160,0"
+						bold="1"/>
+				<Style name="Builtin Functions (Keywords #3)"
+						index="11"
+						fg="0,0,255"/>
+				<Style name="Common section names (Keywords 4)"
+						index="12"
+						fg="255,0,255"
+						italics="1"
+						bold="1"/>
+                <Style name="Builtin variables (Keywords 5)"
+						index="13"
+						fg="0,113,240"/>
+				<Style name="Selection"
+						index="-99"
+						bg="192,192,192"/>
+				<Style name="Matching brace highlight"
+						index="34"
+						bg="128,255,255"
+						bold="1"/>
+				<Style name="No matching brace highlight"
+						index="35"
+						fg="255,255,255"
+						bg="255,0,0"/>
+				<Style name="Keywords 6"
+						index="14"
+						fg="0,0,102"/>
+				<Style name="Keywords 7"
+						index="15"
+						fg="153,0,112"/>
+
+				<Keywords>
+						<Set index="0" value="INCLUDE MEMORY ENTRY SECTIONS PHDRS VERSION INPUT GROUP AS_NEEDED OUTPUT SEARCH_DIR
+                                              STARTUP OUTPUT_FORMAT TARGET REGION_ALIAS EXTERN FORCE_COMMON_ALLOCATION INHIBIT_COMMON_ALLOCATION
+                                              INSERT OUTPUT_ARCH"/>
+                        <Set index="1" value="KEEP EXCLUDE_FILE SORT PROVIDE PROVIDE_HIDDEN ASSERT AT SORT_BY_NAME SUBALIGN NOLOAD DSECT
+                                              COPY INFO OVERLAY FILL NOCROSSREFS FILEHDR FLAGS AFTER BEFORE"/>
+						<Set index="2" value="ABSOLUTE ADDR ALIGN ALIGNOF BLOCK DATA_SEGMENT_ALIGN DATA_SEGMENT_END DATA_SEGMENT_RELRO_END
+                                              DEFINED LENGTH LOADADDR MAX MIN NEXT ORIGIN SEGMENT_START SIZEOF SIZEOF_HEADERS"/>
+						<Set index="3" value=".text .data .rodata .bss .heap .stack COMMON"/>
+						<Set index="4" value="__CTOR_LIST__ __CTOR_END__ __DTOR_LIST__ __DTOR_END__ CONSTRUCTORS ^__load_start_
+                                              ^__load_stop_"/>
+				</Keywords>
+				<SampleCode value="lexer_GnuLD.sample"/>
+                <LanguageAttributes
+                    LineComment="//"
+                    StreamCommentStart="/*"
+                    StreamCommentEnd="*/"
+                    BoxCommentStart="/* "
+                    BoxCommentMid=" * "
+                    BoxCommentEnd=" */"
+                    CaseSensitive="1"
+                    LexerCommentStyles="1,2"
+                    LexerCharacterStyles="7"
+                    LexerStringStyles="5,6"
+                    LexerPreprocessorStyles=""/>
+		</Lexer>
+</EmBlocks_lexer_properties>
+

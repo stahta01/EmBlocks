@@ -1,0 +1,147 @@
+<?xml version="1.0"?>
+<!DOCTYPE EmBlocks_lexer_properties>
+<EmBlocks_lexer_properties>
+        <Lexer name="ARM Assembler"
+                index="102">
+                <Style name="Default"
+                        index="0"
+                        fg="0,0,0"
+                        bg="255,255,255"
+                        bold="0"
+                        italics="0"
+                        underlined="0"/>
+                <Style name="Comment"
+                        index="1,10"
+                        fg="160,160,160"/>
+                <Style name="Number"
+                        index="2"
+                        fg="128,0,0"/>
+                <Style name="String"
+                        index="3,12"
+                        fg="0,0,255"/>
+                <Style name="Character"
+                        index="11"
+                        fg="0,0,255"/>
+                <Style name="Operator"
+                        index="4"
+                        fg="255,0,0"/>
+                <Style name="Identifier"
+                        index="5"
+                        fg="0,0,160"
+                        bold="1"/>
+                <Style name="CPU Instruction"
+                        index="6"
+                        fg="0,0,0"
+                        italics="1"
+                        bold="1"/>
+                <Style name="Register"
+                        index="7"
+                        fg="210,145,0"/>
+                <Style name="Directive"
+                        index="8"
+                        fg="0,0,255"/>
+                <Style name="Preprocessor"
+                        index="9"
+                        fg="0,128,0"/>
+                <Style name="Label"
+                        index="14"
+                        fg="255,0,0"/>
+                <Style name="Debugger line"
+                        index="15"
+                        fg="255,0,0"
+                        italics="1"
+                        bold="1"/>
+                <Style name="Source code in mixed view"
+                        index="16"
+                        fg="164,189,255"
+                        italics="1"
+                        bold="1"/>
+                <Keywords>
+						<!-- CPU instruction set, the second part is for instructions with width specifier (e.g. b.w or b.n) -->
+						<Set index="0"
+                        value=" 	adc  add  addge adr  adrl  and  ands andmi andeq asr asrs b bfc  bfi bhi blt blo
+									bic  bkpt  bl ble blx  bls bge bx  bxj  bgt beq bne  bcc cbz  cbnz  cdp
+									cdp2  chka  clrex  clz  cmn  cmp  cps  dbg
+									dmb  dsb  enterx  leavex  eor  hb  hbl  hblp
+									hbp  isb  it itt ite itete ittt itttt ldc  ldc2  ldm  ldr  ldrmi ldrb  ldrbt
+									ldrd  ldrex  ldrexb  ldrexh  ldrexd  ldrh  ldrht ldrlo ldreq
+									ldrsb  ldrsbt  ldrsh  ldrsht  ldrt ldrlt ldrls ldrhi lsl lsls lsr  ldmlt ldmltia
+									ldmiacs lsrs  ldmfd ldrge ldrhlt mar
+									mcr  mcr2  mcrr  mcrr2  mia  miaph  miaxy  mla  mls
+									mov  movs movt movtls movw movge mov32  movhi movlo mra  mrc  mrc2  mrrc  mrrc2  mrs
+									msr  mul  muls mvn  movne moveq nop negs orn  orr  pkhbt  pkhtb  pld  pldw
+									pli  push  pop  qadd  qdadd  qdsub  qsub  qadd8
+									qadd16  qasx  qsub8  qsub16  qsax  rbit  rev  rev16
+									revsh  rfe  ror  rrx  rsb  rsc  sadd8  sadd16  sasx
+									sbc  sbfx  ubfx  sdiv  sel  setend  sev  shadd8  shadd16
+									shasx  shsub8  shsub16  shsax  smc  smlaxy  smlad  smlal
+									smlalxy  smlald  smlawy  smlsd  smlsld  smmla  smmls
+									smmul  smuad  smusd  smulxy  smull  smulwy  srs  ssat  ssat16
+									ssub8  ssub16  ssax  stc  stc2  stm  stmiacs stmialt str  strmi strb  strbt strlo
+									strd  strge strhlt strex  strexb  strexh  strexd  strh strhls strht  strt strlt strdmi strne
+									sub  subs  subne svc  swi  swp  swpb  sxtab  sxtab16  sxtah stmltia strhmi strhpl
+									sxtb  sxth  sxtb16  sys  tbb  tbh  teq  tst  uadd8  uadd16
+									uasx  udiv  uhadd8  uhadd16  uhasx  uhsub8  uhsub16  uhsax
+									umaal  umlal  umull  uqadd8  uqadd16  uqasx  uqsub8
+									uqsub16  uqsax  usad8  usada8  usat  usat16  usub8  usub16
+									usax  uxtab  uxtab16  uxtah  uxtb  uxth  uxtb16  wfe  wfi  yield
+									stmdb stmia ldmia subeq
+
+									adds subw ^beq. ^bcs.
+
+                                    ^adc.  ^add.  ^adr.  ^adrl.  ^and.  ^ands. ^asr.  ^b. ^bfc.  ^bfi. ^bhi. ^blt. ^biclt.
+									^bic. ^bkpt.  ^bl.  ^blx.  ^bx. ^bcc.  ^bxj.  ^beq. ^bgt. ^ble. ^bne. ^bmi. ^bpl. ^cbz.  ^cbnz.  ^cdp.
+									^cdp2  ^chka  ^clrex  ^clz  ^cmn  ^cmp  ^cps  ^dbg ^blo
+									^dmb.  ^dsb.  ^enterx.  ^leavex.  ^eor.  ^hb.  ^hbl.  ^hblp.
+									^hbp.  ^isb.  ^it.  ^ldc.  ^ldc2.  ^ldm.  ^ldr.  ^ldrb.  ^ldrbt.
+									^ldrd.  ^ldrex.  ^ldrexb.  ^ldrexh.  ^ldrexd.  ^ldreq. ^ldrh.  ^ldrht. ^ldrlo.
+									^ldrsb.  ^ldrsbt.  ^ldrsh. ^ldrhls.  ^ldrsht.  ^ldrt.  ^ldrlt. ^lsl.  ^lsr. ^ldmltia. ^mar.
+									^mcr.  ^mcr2.  ^mcrr.  ^mcrr2.  ^mia.  ^miaph.  ^miaxy.  ^mla.  ^mls.
+									^mov.  ^movs. ^movls. ^movt.  ^mov32. ^mra.  ^mrc.  ^mrc2.  ^mrrc.  ^mrrc2.  ^mrs.
+									^msr.  ^mul.  ^muls. ^mvn.  ^nop.  ^orn.  ^orr.  ^pkhbt.  ^pkhtb.  ^pld.  ^pldw.
+									^pli.  ^push.  ^pop.  ^qadd.  ^qdadd.  ^qdsub.  ^qsub.  ^qadd8.
+									^qadd16.  ^qasx.  ^qsub8.  ^qsub16.  ^qsax.  ^rbit.  ^rev.  ^rev16.
+									^revsh.  ^rfe.  ^ror.  ^rrx.  ^rsb.  ^rsc.  ^sadd8.  ^sadd16.  ^sasx.
+									^sbc.  ^sbfx.  ^ubfx.  ^sdiv.  ^sel.  ^setend.  ^sev.  ^shadd8.  ^shadd16.
+									^shasx.  ^shsub8.  ^shsub16.  ^shsax.  ^smc.  ^smlaxy.  ^smlad.  ^smlal.
+									^smlalxy.  ^smlald.  ^smlawy.  ^smlsd.  ^smlsld.  ^smmla.  ^smmls.
+									^smmul.  ^smuad.  ^smusd.  ^smulxy.  ^smull.  ^smulwy.  ^srs.  ^ssat.  ^ssat16.
+									^ssub8.  ^ssub16.  ^ssax.  ^stc.  ^stc2.  ^stm.  ^str. ^strcc. ^strb.  ^strbt. ^strlo.
+									^strd.  ^strex.  ^strexb.  ^strexh.  ^strexd.  ^strh. ^strne. ^strht. ^strlt. ^strt.
+									^sub.  ^subs.  ^svc.  ^swi.  ^swp.  ^swpb.  ^sxtab.  ^sxtab16.  ^sxtah. ^stmltia.
+									^sxtb.  ^sxth.  ^sxtb16.  ^sys.  ^tbb.  ^tbh.  ^teq.  ^tst.  ^uadd8.  ^uadd16.
+									^uasx.  ^udiv.  ^uhadd8.  ^uhadd16.  ^uhasx.  ^uhsub8.  ^uhsub16.  ^uhsax.
+									^umaal.  ^umlal.  ^umull.  ^uqadd8.  ^uqadd16.  ^uqasx.  ^uqsub8.
+									^uqsub16.  ^uqsax.  ^usad8.  ^usada8.  ^usat.  ^usat16.  ^usub8.  ^usub16.
+									^usax.  ^uxtab.  ^uxtab16.  ^uxtah.  ^uxtb.  ^uxth.  ^uxtb16. ^vshll. ^vmla. ^wfe.  ^wfi.  ^yield.
+									^stmdb. ^stmia. ^ldmia. ^bls. ^blt. ^bne.
+^bge.
+
+									"/>
+						<!-- Registers -->
+						<Set index="1" value="  r0 r1 r2 r3 r4 r5 r6 r7 r8 r9 r10 r11 r12 r13 r14 r15
+                                                sp pc lr cpsr xpsr
+                                                fo f1 f2 f3 f4 f5 f6 f7 fps"/>
+						<!-- Directives -->
+						<Set index="2" value="  alias equ ltorg align export global macro mend
+									arm code32 exportas map area extern  assert field
+									mexit attr frame address nofp cn pop opt code16 push
+									preserve8 require8 common register proc function cp
+									restore qn data save reloc dcb state remember require
+									dcd dcdu dcdo unwind on off rlist dcfd dcfdu rn dcfs
+									dcfsu gbla gbll gbls dci get include seta setl  sets
+									dcq  dcqu  sn dcw  dcwu if else endif elif space fill
+									dn import subt incbin thumb end thumbx endfunc  endp
+									info while wend entry lcla lcll lcls weak def"/>
+                </Keywords>
+                <SampleCode value="lexer_arm.sample"/>
+                <LanguageAttributes
+                    LineComment=""
+                    StreamCommentStart=""
+                    StreamCommentEnd=""
+                    BoxCommentStart=""
+                    BoxCommentMid=""
+                    BoxCommentEnd=""
+                    CaseSensitive="0"/>
+        </Lexer>
+</EmBlocks_lexer_properties>

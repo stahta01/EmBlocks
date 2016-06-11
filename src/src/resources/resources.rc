@@ -1,0 +1,80 @@
+// Keep this in alphabetical order to ease identification of image indices!
+// After a change in this file probably image indices have to be adopted.
+// -> Adopt e.g. associations.cpp accordingly (indices start at 0).
+//#define wxUSE_NO_MANIFEST 1
+
+A_MAIN_ICON        ICON "../src/resources/icons/app.ico"
+B_PROJECT_FILE     ICON "../src/resources/icons/ebp.ico"
+C_WORKSPACE_FILE   ICON "../src/resources/icons/ebw.ico"
+D_SOURCE_FILE_C    ICON "../src/resources/icons/c.ico"
+E_SOURCE_FILE_CPP  ICON "../src/resources/icons/cpp.ico"
+F_SOURCE_FILE_H    ICON "../src/resources/icons/h.ico"
+
+//SOURCE_FILE_ASM  ICON "src/resources/icons/asm.ico"
+//SOURCE_FILE_JAVA ICON "src/resources/icons/j.ico"
+//SOURCE_FILE_X_CG ICON "src/resources/icons/cg.ico"
+//SOURCE_FILE_X_D  ICON "src/resources/icons/d.ico"
+
+// WXICON_AAA
+// WXICON_SMALL_CDROM
+// WXICON_SMALL_CLOSED_FOLDER
+// WXICON_SMALL_COMPUTER
+// WXICON_SMALL_DRIVE
+// WXICON_SMALL_FILE
+// WXICON_SMALL_FLOPPY
+// WXICON_SMALL_OPEN_FOLDER
+// WXICON_SMALL_REMOVABLE
+
+// wxBITMAP_STD_COLOURS    BITMAP "wx/msw/colours.bmp"
+// is the only thing needed from:
+#include "..\..\sdk\include\settings.h"
+#include <wx/msw/wx.rc>
+// additional icons contributed due to this include are commented above
+
+#define RC_FILEVERSION 0,0,0,0
+
+
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+
+VS_VERSION_INFO		VERSIONINFO
+  FILEVERSION		RC_FILEVERSION
+  PRODUCTVERSION	RC_FILEVERSION
+  FILEFLAGSMASK		0x3fL // VS_FFI_FILEFLAGSMASK
+#ifdef __WXDEBUG__
+  FILEFLAGS        	0x1L  // VS_FF_DEBUG|VS_FF_PRIVATEBUILD|VS_FF_PRERELEASE
+#else
+  FILEFLAGS        	0x0L  // final version
+#endif
+  FILEOS           	VOS_NT_WINDOWS32
+  FILETYPE         	VFT_APP
+  FILESUBTYPE      	VFT2_UNKNOWN // not used
+{
+  BLOCK "StringFileInfo"
+  {
+    BLOCK "040904E4" // Lang=US English, CharSet=Windows Multilingual
+    {
+      VALUE "Build",				RELEASE
+      VALUE "Comments",			    "\0"
+      VALUE "CompanyName",	        "\0"
+      VALUE "Developer",			"Gerard Zagema\0"
+      VALUE "FileDescription",		"Embedded IDE\0"
+	  VALUE "FileVersion",			RELEASE
+      VALUE "InternalName",		    "EmBlocks\0"
+      VALUE "LegalCopyright",		"Copyright 2013 Gerard Zagema.\0"
+      VALUE "LegalTrademarks",	    "All rights reserved.\0"
+      VALUE "OriginalFilename",	    "EmBlocks.exe\0"
+      VALUE "PrivateBuild",			"\0"
+      VALUE "ProductName",		    "EmBlocks\0"
+      VALUE "ProductVersion",	    RELEASE
+      VALUE "SpecialBuild",			"\0"
+      VALUE "Support",				"http://www.emblocks.org/\0"
+      VALUE "Users",				"Unlimited.\0"
+    } // BLOCK "040904E4"
+  } // BLOCK "StringFileInfo"
+  BLOCK "VarFileInfo"
+  {
+    VALUE "Translation", 0x409, 1252 // 1252 = 0x04E4
+  } // BLOCK "VarFileInfo"
+}
+
+//1 24 "setup/codeblocks.exe.manifest"

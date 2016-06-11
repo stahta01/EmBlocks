@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="FileDiff" />
+		<Option pch_mode="2" />
+		<Option compiler="gcc" />
+		<Build>
+			<Target title="Windows">
+				<Option output="..\..\..\build\share\emblocks\plugins\FileDiff.dll" prefix_auto="0" extension_auto="0" />
+				<Option object_output="..\..\..\foo\.objs" />
+				<Option type="3" />
+				<Option compiler="gcc" />
+				<Option host_application="$(#cb)\build\codeblocks.exe" />
+				<Compiler>
+					<Add option="-Wall" />
+					<Add option="-g" />
+					<Add option="-pipe" />
+					<Add option="-mthreads" />
+					<Add option="-fmessage-length=0" />
+					<Add option="-fexceptions" />
+					<Add option="-Winvalid-pch" />
+					<Add option="-DBUILDING_PLUGIN" />
+					<Add option="-DHAVE_W32API_H" />
+					<Add option="-D__WXMSW__" />
+					<Add option="-DWXUSINGDLL" />
+					<Add option="-DcbDEBUG" />
+					<Add option="-DCB_PRECOMP" />
+					<Add option="-DwxUSE_UNICODE" />
+					<Add option="-DEXPORT_FUNC" />
+					<Add directory="..\..\..\sdk\include" />
+					<Add directory="..\..\..\sdk\wxscintilla\include" />
+					<Add directory="$(#EWX.include)" />
+					<Add directory="$(#EWX.lib)\gcc_dll$(WX_CFG)\msw$(WX_SUFFIX)" />
+				</Compiler>
+				<Linker>
+					<Add option="-mthreads" />
+					<Add option="-Wl,--enable-auto-import" />
+					<Add library="emblocks" />
+					<Add library="wxmsw$(WX_VERSION)" />
+					<Add directory="..\..\..\build" />
+					<Add directory="$(#EWX.lib)\gcc_dll$(WX_CFG)" />
+				</Linker>
+				<ExtraCommands>
+					<Add after=".\resources\make_zip.bat" />
+					<Mode after="always" />
+				</ExtraCommands>
+				<Environment>
+					<Variable name="WX_CFG" value="_wxeb" />
+					<Variable name="WX_SUFFIX" value="u" />
+					<Variable name="WX_VERSION" value="1" />
+				</Environment>
+			</Target>
+		</Build>
+		<VirtualTargets>
+			<Add alias="All" targets="Windows;" />
+		</VirtualTargets>
+		<Unit filename="images\reload.h" />
+		<Unit filename="images\sidebyside.h" />
+		<Unit filename="images\swap.h" />
+		<Unit filename="images\table.h" />
+		<Unit filename="images\unified.h" />
+		<Unit filename="manifest.xml" />
+		<Unit filename="resources\filediff_plugin.xrc" />
+		<Unit filename="src\cbDiff.cpp" />
+		<Unit filename="src\cbDiff.h" />
+		<Unit filename="src\cbDiffConfigPanel.cpp" />
+		<Unit filename="src\cbDiffConfigPanel.h" />
+		<Unit filename="src\cbDiffCtrl.cpp" />
+		<Unit filename="src\cbDiffCtrl.h" />
+		<Unit filename="src\cbDiffEditor.cpp" />
+		<Unit filename="src\cbDiffEditor.h" />
+		<Unit filename="src\cbDiffMenu.cpp" />
+		<Unit filename="src\cbDiffMenu.h" />
+		<Unit filename="src\cbDiffSelectFiles.cpp" />
+		<Unit filename="src\cbDiffSelectFiles.h" />
+		<Unit filename="src\cbDiffToolbar.cpp" />
+		<Unit filename="src\cbDiffToolbar.h" />
+		<Unit filename="src\cbDiffUtils.cpp" />
+		<Unit filename="src\cbDiffUtils.h" />
+		<Unit filename="src\cbSideBySideCtrl.cpp" />
+		<Unit filename="src\cbSideBySideCtrl.h" />
+		<Unit filename="src\cbTableCtrl.cpp" />
+		<Unit filename="src\cbTableCtrl.h" />
+		<Unit filename="src\cbUnifiedCtrl.cpp" />
+		<Unit filename="src\cbUnifiedCtrl.h" />
+		<Unit filename="src\wxDiff.cpp" />
+		<Unit filename="src\wxDiff.h" />
+		<Unit filename="wxsmith\cbDiffConfigPanel.wxs" />
+		<Unit filename="wxsmith\cbDiffSelectFiles.wxs" />
+		<Extensions>
+			<envvars />
+			<code_completion />
+			<debugger />
+			<lib_finder disable_auto="1" />
+			<wxsmith version="1">
+				<resources>
+					<wxPanel wxs="wxsmith/cbDiffConfigPanel.wxs" src="cbDiffConfigPanel.cpp" hdr="cbDiffConfigPanel.h" fwddecl="1" i18n="1" name="cbDiffConfigPanel" language="CPP" />
+					<wxDialog wxs="wxsmith/cbDiffSelectFiles.wxs" src="cbDiffSelectFiles.cpp" hdr="cbDiffSelectFiles.h" fwddecl="1" i18n="1" name="cbDiffSelectFiles" language="CPP" />
+				</resources>
+			</wxsmith>
+			<DoxyBlocks>
+				<comment_style block="0" line="0" />
+				<doxyfile_project />
+				<doxyfile_build />
+				<doxyfile_warnings />
+				<doxyfile_output />
+				<doxyfile_dot />
+				<general />
+			</DoxyBlocks>
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>

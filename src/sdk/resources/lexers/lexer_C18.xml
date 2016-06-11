@@ -1,0 +1,98 @@
+<?xml version="1.0"?>
+<!DOCTYPE EmBlocks_lexer_properties>
+<EmBlocks_lexer_properties>
+        <Lexer name="Microchip C18 Assembler"
+                index="102">
+                <Style name="Default"
+                        index="0"
+                        fg="0,0,0"
+                        bg="255,255,255"
+                        bold="0"
+                        italics="0"
+                        underlined="0"/>
+                <Style name="Comment"
+                        index="1,10"
+                        fg="160,160,160"/>
+                <Style name="Number"
+                        index="2"
+                        fg="128,0,0"/>
+                <Style name="String"
+                        index="3,12"
+                        fg="0,0,255"/>
+                <Style name="Character"
+                        index="11"
+                        fg="0,0,255"/>
+                <Style name="Operator"
+                        index="4"
+                        fg="255,0,0"/>
+                <Style name="Identifier"
+                        index="5"
+                        fg="0,0,160"
+                        bold="1"/>
+                <Style name="CPU Instruction"
+                        index="6"
+                        fg="0,0,0"
+                        italics="1"
+                        bold="1"/>
+                <Style name="Register"
+                        index="7"
+                        fg="210,145,0"/>
+                <Style name="Directive"
+                        index="8"
+                        fg="0,0,255"/>
+                <Style name="Preprocessor"
+                        index="9"
+                        fg="0,128,0"/>
+                <Style name="Label"
+                        index="14"
+                        fg="255,0,0"/>
+                <Style name="Debugger line"
+                        index="15"
+                        fg="255,0,0"
+                        italics="1"
+                        bold="1"/>
+                <Style name="Source code in mixed view"
+                        index="16"
+                        fg="164,189,255"
+                        italics="1"
+                        bold="1"/>
+                <Keywords>
+						<!-- CPU instruction set -->
+						<Set index="0"
+                                    value=" addlw addwf andlw andwf addwfc addfsr asrf
+                                            bra brw bcf bsf btfsc btfss btg bz bnz bc bnc bov bnov bn bnn banksel
+                                            call clr clrf clrw clrwdt comf cpfslt cpfseq
+                                            decf decfsz dcfsnz daw
+                                            goto
+                                            incf incfsz infsnz iorlw iorwf
+                                            lfsr lslf lsrf
+                                            movfw movff movf movlw movwf moviw movwi movlb movlp mulwf
+                                            negf nop
+                                            push pop
+                                            retfie retlw return rlf rrf rrcf rlcf rrncf rlncf rcall reset
+                                            sleep sublw subwf subwfb subfwb subwfb swapf setf
+                                            tris tblrd tstfsz
+                                            xorlw xorwf"/>
+						<!-- Registers -->
+						<Set index="1" value="w0 w1 w2 w3 w4 w5 w6 w7 w8 w9 w10 w11 w12 w13 w14 w15
+						                      f c"/>
+						<!-- Directives -->
+						<Set index="2" value=".access .code .idata .idata_acs .udata .udata_acs .udata_ovr .udata_shr
+                                              #define #include #undefine constant end equ org processor radix set variable
+                                              else endif endw if ifdef ifndef while
+                                              __badram __badrom __config config __idlocs __maxram __maxrom cblock da data db de dt dw endc fill res
+                                              error errorlevel list messg nolist page space subtitle title
+                                              endm exitm expand local macro noexpand
+                                              access_ovr bankisel banksel code code_pack extern global idata idata_acs pagesel pageslw udata udata_acs udata_ovr udata_shr"/>
+                </Keywords>
+                <SampleCode value="lexer_C18.sample"/>
+                <LanguageAttributes
+                    LineComment=""
+                    StreamCommentStart=""
+                    StreamCommentEnd=""
+                    BoxCommentStart=""
+                    BoxCommentMid=""
+                    BoxCommentEnd=""
+                    CaseSensitive="1"/>
+        </Lexer>
+</EmBlocks_lexer_properties>

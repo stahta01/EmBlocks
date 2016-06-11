@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<EmBlocks_plugin_manifest_file>
+    <SdkVersion major="1" minor="0"  release="0" />
+    <Plugin name="Navigation">
+        <Value title="Navigation" />
+        <Value version="0.1" />
+        <Value description="Navigate to previous source positions" />
+        <Value author="G. Zagema" />
+        <Value authorEmail="info@emblocks.org" />
+        <Value authorWebsite="www.emblocks,org" />
+        <Value thanksTo="" />
+        <Value license="Copyright(C) EmBlocks" />
+    </Plugin>
+</EmBlocks_plugin_manifest_file>

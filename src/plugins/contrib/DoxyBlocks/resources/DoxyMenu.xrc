@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resource>
+  <object class="wxBitmap" name="bmp_doxyblocks">images/DoxyBlocks.png</object>
+  <object class="wxMenu" name="doxyblocks_menu">
+    <object class="wxMenuItem" name="ID_MENU_DOXYWIZARD">
+      <label>&amp;Doxywizard...</label>
+      <bitmap>images/16x16/doxywizard.png</bitmap>
+      <accel>Ctrl-Alt-D</accel>
+      <help>Run doxywizard.</help>
+    </object>
+    <object class="wxMenuItem" name="ID_MENU_EXTRACTPROJECT">
+      <label>&amp;Extract documentation</label>
+      <bitmap>images/16x16/extract.png</bitmap>
+      <accel>Ctrl-Alt-E</accel>
+      <help>Extract documentation for the current project.</help>
+    </object>
+    <object class="separator"/>
+
+    <object class="wxMenuItem" name="ID_MENU_BLOCKCOMMENT">
+      <label>&amp;Block comment</label>
+      <bitmap>images/16x16/comment_block.png</bitmap>
+      <accel>Ctrl-Alt-B</accel>
+      <help>Insert a comment block at the current line.</help>
+    </object>
+    <object class="wxMenuItem" name="ID_MENU_LINECOMMENT">
+      <label>&amp;Line comment</label>
+      <bitmap>images/16x16/comment_line.png</bitmap>
+      <accel>Ctrl-Alt-L</accel>
+      <help>Insert a line comment at the current cursor position.</help>
+    </object>
+    <object class="separator"/>
+
+    <object class="wxMenuItem" name="ID_MENU_RUNHTML">
+      <label>Run &amp;HTML</label>
+      <bitmap>images/16x16/html.png</bitmap>
+      <accel>Ctrl-Alt-H</accel>
+      <help>Run HTML documentation.</help>
+    </object>
+    <object class="wxMenuItem" name="ID_MENU_RUNCHM">
+      <label>Run &amp;CHM</label>
+      <bitmap>images/16x16/chm.png</bitmap>
+      <accel>Ctrl-Alt-C</accel>
+      <help>Insert a comment block at the current line.</help>
+    </object>
+    <object class="separator"/>
+
+    <object class="wxMenuItem" name="ID_MENU_CONFIG">
+      <label>Open &amp;preferences...</label>
+      <bitmap>images/16x16/configure.png</bitmap>
+      <accel>Ctrl-Alt-P</accel>
+      <help>Open DoxyBlocks' preferences.</help>
+    </object>
+    <object class="separator"/>
+
+    <object class="wxMenuItem" name="ID_MENU_LOAD_TEMPLATE">
+      <label>L&amp;oad settings template</label>
+      <bitmap>images/16x16/fileopen.png</bitmap>
+      <accel></accel>
+      <help>Load saved settings template.</help>
+    </object>
+    <object class="wxMenuItem" name="ID_MENU_SAVE_TEMPLATE">
+      <label>&amp;Save settings template</label>
+      <bitmap>images/16x16/filesave.png</bitmap>
+      <accel></accel>
+      <help>Save current settings for future use.</help>
+    </object>
+
+  </object>
+
+
+</resource>

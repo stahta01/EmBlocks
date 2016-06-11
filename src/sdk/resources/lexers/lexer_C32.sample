@@ -1,0 +1,70 @@
+#include <p32xxxx.h>
+
+/* One second time period for core running at 8MHz */
+#define TIMER_PERIOD (8000000)
+
+#define IOPORT_BIT_7 (1 << 7)
+#define CT_INT_ON (1 << 15)
+#define CT_INT_PRIOR_3 (3)
+
+	.global main
+
+	.text
+	.set noreorder
+
+/*--------------------------------------------------*/
+/*  system variables                                */
+/*--------------------------------------------------*/
+        RSEG SHORTAD        ;16 bytes long
+Bits0   DS.B 1      ;shortad byte ff00
+
+        RSEG GDAT:DATA(1)   ;global data
+        EVEN
+dummy1  DS.L 1      ;testvariable
+
+        RSEG CSTACK:DATA(1)  
+stack   DS.B   400  ; stack area  
+
+/*--------------------------------------------------*/
+/*  code                                            */
+/*--------------------------------------------------*/
+
+/*********************************************************************
+ * main()
+ * This is where the PIC32 start-up code will jump to after initial
+ * set-up.
+ ********************************************************************/
+
+.ent main /* directive that marks symbol 'main' as function in ELF
+           * output
+           */
+
+main:
+   /* function prologue - save registers used in this function 
+    * on stack and adjust stack-pointer
+    */
+   addiu   sp, sp, -4
+   sw      s0, 0(sp)
+
+   la      s0, LATACLR
+   sw      a0, 0(s0)      /* clear specified bits */
+   
+   /* function epilogue - restore registers used in this function
+    * from stack and adjust stack-pointer
+    */
+   lw      s0, 0(sp)
+   addiu   sp, sp, 4
+
+   /* return to caller */
+   jr      ra
+   nop
+
+
+.end main /* directive that marks end of 'main' function and registers
+           * size in ELF output
+           */
+
+
+
+
+
